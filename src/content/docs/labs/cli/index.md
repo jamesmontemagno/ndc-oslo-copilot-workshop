@@ -12,7 +12,7 @@ Build a retro arcade GitHub contribution comparison app — **Mona Mayhem** — 
 
 ## Workshop path
 
-Follow the CLI instructions throughout this edition. Parts 1–5 form the facilitated core; Parts 6–8 are advanced deep dives, and Part 9 is optional.
+Follow the CLI instructions throughout this edition. Parts 1–7 form the facilitated core; Parts 8–10 are advanced deep dives, and Part 11 is optional.
 
 ---
 
@@ -30,10 +30,6 @@ Before you begin, verify:
 
 
 - [ ] [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) installed and available as `copilot`
-- [ ] Authenticated in the CLI with `/login`
-- [ ] Comfortable using slash commands like `/help`, `/plan`, and `/review`
-
-
 > **Tip:** The starter repository includes a Dev Container if you prefer a pre-configured terminal environment.
 
 ---
@@ -69,15 +65,17 @@ Before you begin, verify:
 
 | Part | Title | Description |
 |------|-------|-------------|
-| [**01**](./01-setup/) | Setup & Context Engineering | Clone the dedicated starter, prepare your environment, and give Copilot the right context |
-| [**02**](./02-plan-and-scaffold/) | Plan & Scaffold | Design the API and page architecture before you implement |
-| [**03**](./03-agent-mode/) | Build the Game | Wire up the battle page and contribution graphs with agentic help |
-| [**04**](./04-design-vibes/) | Design-First Theming | Turn the scaffold into a retro arcade experience |
-| [**05**](./05-polish/) | Polish & Parallel Work | Use multi-agent workflows to improve UX, resilience, and quality |
-| [**06**](./06-agents/) | Specialized Agents & Instructions | Build custom agents and path-scoped instructions that carry your project's expertise |
-| [**07**](./07-skills/) | Skills | Package reusable expertise Copilot loads automatically |
-| [**08**](./08-mcp/) | MCP Servers | Connect Copilot to GitHub, a real browser, and live docs |
-| [**09**](./09-bonus/) | Bonus & Extensions | Explore open-ended features, sharing workflows, and extra experiments |
+| [**01**](./01-setup/) | Setup | Install, authenticate, and verify GitHub Copilot CLI |
+| [**02**](./02-guided-tour/) | Guided CLI Tour | Build and ship a standalone space quiz through an end-to-end CLI workflow |
+| [**03**](./03-mona-mayhem/) | Get Started with Mona Mayhem | Clone the starter and engineer context with `/init`, slash commands, and shell commands |
+| [**04**](./04-plan-and-scaffold/) | Plan & Scaffold | Design the API and page architecture before you implement |
+| [**05**](./05-agent-mode/) | Build the Game | Wire up the battle page and contribution graphs with agentic help |
+| [**06**](./06-design-vibes/) | Design-First Theming | Turn the scaffold into a retro arcade experience |
+| [**07**](./07-polish/) | Polish & Parallel Work | Use multi-agent workflows to improve UX, resilience, and quality |
+| [**08**](./08-agents/) | Specialized Agents & Instructions | Build custom agents and path-scoped instructions that carry your project's expertise |
+| [**09**](./09-skills/) | Skills | Package reusable expertise Copilot loads automatically |
+| [**10**](./10-mcp/) | MCP Servers | Connect Copilot to GitHub, a real browser, and live docs |
+| [**11**](./11-bonus/) | Bonus & Extensions | Explore open-ended features, sharing workflows, and extra experiments |
 
 ---
 

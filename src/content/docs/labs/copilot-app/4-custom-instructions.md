@@ -1,5 +1,5 @@
 ---
-title: "Lesson 3 - Guiding Copilot with custom instructions"
+title: "Lesson 4 - Guiding Copilot with custom instructions"
 description: "Use the GitHub Copilot app to add a custom instructions standard to your repository, starting from an issue in your backlog and merging the change as a pull request."
 authors:
   - geektrainer
@@ -145,7 +145,7 @@ You explored how the app picks up context from instruction files, then used a se
 - asked the agent to add a documentation standard to `.github/copilot-instructions.md`.
 - reviewed the change and merged it as a pull request.
 
-Next, you'll build the filtering feature in a fresh session — and watch it pick up the standard you just merged. Continue to [Lesson 4 - Building a feature with Autopilot][next-lesson].
+Next, you'll build the filtering feature in a fresh session — and watch it pick up the standard you just merged. Continue to [Lesson 5 - Building a feature with Autopilot][next-lesson].
 
 ## Resources
 
@@ -154,7 +154,7 @@ Next, you'll build the filtering feature in a fresh session — and watch it pic
 - [Best practices for creating custom instructions][instructions-best-practices]
 - [Awesome Copilot — a collection of instruction files and other resources][awesome-copilot]
 
-[next-lesson]: ../4-build-filtering/
+[next-lesson]: ../5-build-filtering/
 [instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app
 [instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository

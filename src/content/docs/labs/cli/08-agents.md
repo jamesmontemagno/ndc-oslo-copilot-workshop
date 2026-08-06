@@ -1,5 +1,5 @@
 ---
-title: "Part 6: Specialized Agents & Custom Instructions"
+title: "Part 8: Specialized Agents & Custom Instructions"
 ---
 
 Your app is built, themed, and polished. Until now Copilot has worked as a **generalist** — it does whatever your current prompt asks. In this part you'll give it **specialized personas** and **always-on project rules** so the *same* prompt produces sharper, more consistent results.
@@ -47,7 +47,7 @@ Try a couple you haven't used yet, right on the Mona Mayhem code:
 
 ## Section 2: Path-Specific Custom Instructions
 
-In Part 1 you generated `.github/copilot-instructions.md` with `/init`. That file applies to **every** prompt. But some rules should only apply to *certain files* — Astro component conventions shouldn't clutter a conversation about a TypeScript API route.
+In Part 3 you generated `.github/copilot-instructions.md` with `/init`. That file applies to **every** prompt. But some rules should only apply to *certain files* — Astro component conventions shouldn't clutter a conversation about a TypeScript API route.
 
 **Path-specific instruction files** solve this. They live in `.github/instructions/` and use an `applyTo` glob in their frontmatter.
 
@@ -178,7 +178,7 @@ Custom instructions provide always-on guidance for work in their scope. A custom
 
 </details>
 
-## ✅ Part 6 Complete
+## Part 8 complete
 
 You've learned how to:
 
@@ -187,4 +187,4 @@ You've learned how to:
 - Build and switch between **custom agents** that carry your project's expertise
 - Prove the value of specialists by comparing generic vs. agent-guided output
 
-> **Next:** In Part 7 you'll package repeatable expertise as **Skills** that Copilot loads automatically when your prompt matches.
+> **Next:** In Part 9 you'll package repeatable expertise as **Skills** that Copilot loads automatically when your prompt matches.

@@ -1,5 +1,5 @@
 ---
-title: "Part 3: Build the Game with Agentic Workflows"
+title: "Part 5: Build the Game with Agentic Workflows"
 ---
 
 This part is where Copilot goes from planner to implementer. Instead of writing code line by line, you describe what you want and let Copilot carry out the work across the files it needs to change.
@@ -62,12 +62,12 @@ Copilot CLI sessions keep their history, so each follow-up prompt builds on the 
 ## Tips for This Part
 
 - **Be specific about what you want** — clear requirements lead to better results.
-- **Stay in scope** — this part is about *behavior*, not looks. If Copilot starts theming the page, adding animations, or making it responsive, rein it back; that's Parts 4–5.
+- **Stay in scope** — this part is about *behavior*, not looks. If Copilot starts theming the page, adding animations, or making it responsive, rein it back; that's Parts 6–7.
 - **Break down large tasks into smaller prompts** if Copilot goes off track.
 - **Review changes before accepting** — generated code is faster to inspect than to rewrite later.
 - **Test the app immediately after each implementation pass** so issues stay localized.
 
-## ✅ Part 3 Complete
+## Part 5 complete
 
 You've learned how to:
 
