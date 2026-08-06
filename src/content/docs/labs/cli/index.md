@@ -34,7 +34,7 @@ Before you begin, verify:
 - [ ] Comfortable using slash commands like `/help`, `/plan`, and `/review`
 
 
-> **Tip:** The included Dev Container provides a pre-configured terminal environment if you prefer containers.
+> **Tip:** The starter repository includes a Dev Container if you prefer a pre-configured terminal environment.
 
 ---
 
@@ -69,7 +69,7 @@ Before you begin, verify:
 
 | Part | Title | Description |
 |------|-------|-------------|
-| [**01**](./01-setup/) | Setup & Context Engineering | Open the included starter, prepare your environment, and give Copilot the right context |
+| [**01**](./01-setup/) | Setup & Context Engineering | Clone the dedicated starter, prepare your environment, and give Copilot the right context |
 | [**02**](./02-plan-and-scaffold/) | Plan & Scaffold | Design the API and page architecture before you implement |
 | [**03**](./03-agent-mode/) | Build the Game | Wire up the battle page and contribution graphs with agentic help |
 | [**04**](./04-design-vibes/) | Design-First Theming | Turn the scaffold into a retro arcade experience |

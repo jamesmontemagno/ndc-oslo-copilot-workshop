@@ -16,7 +16,7 @@ Provide one trusted path through two GitHub Copilot experiences, ordered as Copi
 
 ## Positioning
 
-The site joins a repository-backed Copilot App development loop with a runnable, included Copilot CLI starter, while keeping each track's setup model explicit: Tailspin Toys remains an external template and Mona Mayhem ships in this repository.
+The site joins a repository-backed Copilot App development loop with a Copilot CLI build path while keeping each track's setup model explicit: Tailspin Toys is an external template and Mona Mayhem is a separate starter repository.
 
 ## Operating Context
 
@@ -26,8 +26,8 @@ Attendees use GitHub, Git, Node.js, a modern browser, the GitHub Copilot app, Gi
 
 - Retain only the Copilot App and Copilot CLI tracks, in that order.
 - Preserve substantive upstream lesson content and provenance.
-- Include the runnable CLI starter under `labs/01-copilot-cli/`.
-- Do not vendor the Tailspin Toys application.
+- Keep runnable workshop projects out of this website repository.
+- Direct learners to the Tailspin Toys template and dedicated Mona Mayhem starter repositories.
 - Store progress and theme preferences locally in the browser.
 - Support dynamic GitHub Pages owner and repository paths.
 
@@ -37,7 +37,7 @@ Use the name NDC Oslo 2026 and the official public event facts: 14-18 September 
 
 ## Evidence on Hand
 
-- Retained source workshop lessons and starter materials in the local read-only source repository.
+- Retained source workshop lessons in the local read-only source repository.
 - Official event metadata at <https://ndcoslo.com/>.
 - Upstream source pins in `workshops.sources.json`.
 - No workshop-specific NDC date or session URL is confirmed and none may be invented.
@@ -46,7 +46,7 @@ Use the name NDC Oslo 2026 and the official public event facts: 14-18 September 
 
 1. Make the two-track progression unmistakable on every surface.
 2. Start with Copilot App and make resume behavior predictable.
-3. Distinguish the included CLI starter from the external Tailspin Toys template.
+3. Make each track's external project setup unmistakable.
 4. Preserve educational source truth while removing unrelated curriculum completely.
 5. Optimize for legibility, keyboard access, and confidence in a conference room.
 

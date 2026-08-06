@@ -3,8 +3,4 @@ dist/
 .astro/
 .impeccable/live/session.json
 .DS_Store
-labs/**/node_modules/
-labs/**/bin/
-labs/**/obj/
-labs/**/dist/
 .playwright-mcp/

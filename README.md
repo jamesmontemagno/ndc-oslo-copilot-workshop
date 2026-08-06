@@ -11,7 +11,10 @@ Two hands-on GitHub Copilot labs for [NDC Oslo 2026](https://ndcoslo.com/) (14â€
 
 See the [preparation guide](src/content/docs/prepare.md) or the deployed site.
 
-The CLI starter project is included under `labs/01-copilot-cli/`. The Copilot App lab uses the separate [Tailspin Toys template](https://github.com/github-samples/tailspin-toys).
+This repository contains only the workshop website. Runnable projects live separately:
+
+- [Tailspin Toys](https://github.com/github-samples/tailspin-toys) for the Copilot App track
+- [Mona Mayhem](https://github.com/jamesmontemagno/workshop-mona-mayhem) for the Copilot CLI track
 
 ## Development
 

@@ -6,15 +6,17 @@ In this part you'll set up your development environment **and** teach Copilot ab
 
 ## Section 1: Initial Setup
 
-### Step 1: Open the CLI Lab
+### Step 1: Clone the CLI starter
 
-From the workshop repository root, open a terminal in the included starter:
+Clone the dedicated Mona Mayhem starter, then open it in your editor:
 
 ```bash
-cd labs/01-copilot-cli
+git clone https://github.com/jamesmontemagno/workshop-mona-mayhem.git
+cd workshop-mona-mayhem
+code .
 ```
 
-Keep your work in this folder. If you forked the workshop repository during [Step 0](../../../prepare/#step-0-fork-or-clone-the-workshop), your changes can be committed and pushed back to that fork.
+Keep all CLI lab work in this repository. Fork the starter first only when you want to push changes or use repository-backed GitHub features.
 
 
 
@@ -43,7 +45,7 @@ Use the installation path that matches your machine:
 
 ### Step 3: Start the App and Authenticate the CLI
 
-1. In the terminal already open at `labs/01-copilot-cli`, install dependencies and start the app:
+1. In the terminal at `workshop-mona-mayhem`, install dependencies and start the app:
 
    ```bash
    npm install

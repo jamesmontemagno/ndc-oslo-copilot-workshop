@@ -7,7 +7,6 @@ import { lessonSections } from './lesson-sections.mjs';
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const docsRoot = join(root, 'src', 'content', 'docs');
 const labsDocsRoot = join(docsRoot, 'labs');
-const startersRoot = join(root, 'labs');
 const required = [
   'prepare.md',
   'resources.md',
@@ -20,17 +19,12 @@ const actualTrackDirectories = readdirSync(labsDocsRoot, { withFileTypes: true }
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
   .sort();
-const expectedStarterDirectories = ['01-copilot-cli'];
-const actualStarterDirectories = readdirSync(startersRoot, { withFileTypes: true })
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => entry.name)
-  .sort();
 
 if (actualTrackDirectories.join(',') !== expectedTrackDirectories.join(',')) {
   errors.push(`Unexpected workshop content directories: ${actualTrackDirectories.join(', ')}`);
 }
-if (actualStarterDirectories.join(',') !== expectedStarterDirectories.join(',')) {
-  errors.push(`Unexpected starter directories: ${actualStarterDirectories.join(', ')}`);
+if (existsSync(join(root, 'labs'))) {
+  errors.push('Runnable lab projects must live in their dedicated external repositories.');
 }
 
 const sourceManifest = JSON.parse(readFileSync(join(root, 'workshops.sources.json'), 'utf8'));
