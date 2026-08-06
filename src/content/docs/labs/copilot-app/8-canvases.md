@@ -1,5 +1,5 @@
 ---
-title: "Lesson 7 - Planning with canvases"
+title: "Lesson 8 - Planning with canvases"
 description: "Create a shared, agent-driven canvas in the GitHub Copilot app to plan and track your work alongside the agent."
 authors:
   - geektrainer
@@ -113,7 +113,7 @@ You created a shared surface where you and the agent can collaborate! You:
 - saved and merged the canvas to your repository with Agent Merge.
 - opened the canvas in a new session and used it to start work.
 
-With your backlog tracked, take a step back to review everything you've built and where to go next. Continue to [Lesson 8 - Review and next steps][next-lesson].
+With your backlog tracked, take a step back to review everything you've built and where to go next. Continue to [Lesson 9 - Review and next steps][next-lesson].
 
 ## Check your understanding
 
@@ -134,7 +134,7 @@ A canvas is a persistent interactive surface that both you and the agent can upd
 - [Canvases on Awesome Copilot][awesome-copilot-canvases]
 - [About the GitHub Copilot app][about-copilot-app]
 
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

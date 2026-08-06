@@ -1,14 +1,15 @@
 ---
-title: "Lesson 8 - Review and next steps"
+title: "Lesson 9 - Review and next steps"
 description: "Recap the GitHub Copilot app harness, automate recurring work, and explore where to go next."
 authors:
   - geektrainer
-lastUpdated: 2026-07-09
+lastUpdated: 2026-08-06
 ---
 
 Over the last several lessons, you took a feature from idea to merge with the GitHub Copilot app, including:
 
 - connecting a repository and orienting to the app's workspace and your seeded backlog.
+- building and publishing a standalone project through the guided app tour.
 - starting sessions from a direct task and from issues, and using Plan and Autopilot modes to control how the agent works.
 - guiding the agent with custom instructions and a reusable skill.
 - testing your work with the Playwright MCP server in a real browser.

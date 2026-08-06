@@ -1,66 +1,51 @@
 ---
 title: "Lesson 1 - Installing the GitHub Copilot app"
-description: "Install the GitHub Copilot app, connect the repository you created from the template, get oriented in the workspace, and try a quick chat."
+description: "Install the GitHub Copilot app, sign in, and get oriented in the workspace."
 authors:
   - geektrainer
-lastUpdated: 2026-07-09
+lastUpdated: 2026-08-06
 ---
 
-The **[GitHub Copilot app][about-copilot-app]** is a desktop application for agent-driven development. It is built on GitHub Copilot CLI and integrates natively with GitHub, so your repositories, branches, and CI pipelines work out of the box. It's designed for workflows where you direct several agents in parallel — each in its own isolated workspace — rather than doing all of the work yourself, and automating repetitive tasks. With Node.js installed and your copy of the project ready, the next step is to install the app and connect that repository.
+The **[GitHub Copilot app][about-copilot-app]** is a desktop application for agent-driven development. It is built on GitHub Copilot CLI and integrates natively with GitHub, so your repositories, branches, and CI pipelines work out of the box. It's designed for workflows where you direct several agents in parallel — each in its own isolated workspace — rather than doing all of the work yourself. With the prerequisites ready, the next step is to install the app and sign in.
 
 In this lesson, you will:
 
 - install the GitHub Copilot app and sign in.
-- add your project to the app from its GitHub repository.
-- get oriented in the workspace, including the backlog the template seeded for you.
+- get oriented in the app's main workspace.
 - try a quick chat to learn about the app itself.
 
 ## Scenario
 
-Your team is adopting AI agents to work through a growing backlog. The Copilot app gives you one place to direct that work — picking up issues, running agents, reviewing changes, and merging pull requests. This lesson gets you installed, connected, and comfortable starting a conversation about your project.
+Your team is adopting AI agents to work through a growing backlog. The Copilot app gives you one place to direct that work — picking up issues, running agents, reviewing changes, and merging pull requests. This lesson gets you installed, authenticated, and comfortable starting a conversation.
 
 > [!NOTE]
 > An eligible Copilot plan is required — Copilot Student or any paid plan (Pro, Pro+, Business, or Enterprise). If you are on Copilot Business or Copilot Enterprise, your administrator must enable the **Copilot CLI** policy before the app will work.
 
 ## Install and configure the GitHub Copilot app
 
-To use the GitHub Copilot app the first step, as you might imagine, is to install it. Versions are available for Windows, macOS and Linux. Let's install the app, authenticate, and add our Tailspin Toys repo to the app.
+Versions of the GitHub Copilot app are available for Windows, macOS, and Linux. Let's install the app and authenticate.
 
 1. In a browser, open the [landing page for the GitHub Copilot app][download-app].
 2. Download the app for your platform and install it following the instructions provided on the landing page.
 3. Open the app once it's installed.
 4. Select **Sign in to GitHub** and follow the prompts to authenticate. If you use GitHub Enterprise Server, choose **Use GitHub Enterprise** and enter your server address when prompted.
-5. After authenticating, you'll be asked about connecting your repositories. Select the Tailspin Toys repo you just created, which should be named `<YOUR_GITHUB_HANDLE>/tailspin-toys`.
-6. Select **Continue** to continue the onboarding.
-7. When prompted for a theme, select the one which brings you the most joy, then select **Finish**.
+5. After authenticating, you may be asked to connect a repository or local folder. Skip this step for now; you'll create a fresh local project in the next lesson.
+6. When prompted for a theme, select the one which brings you the most joy, then select **Finish**.
+
+When you start your first session in the next lesson, select **GPT-5.3-Codex** in the model picker if it is available. If it is not listed for your account, use **Auto**.
 
 > [!NOTE]
-> If your copy of Tailspin Toys didn't appear in the list automatically, you can add it after completing the onboarding process in the app. When completed, the Copilot app will bring you to the home screen. From there you can select **Choose from GitHub**, and search for your repo by name (\<YOUR_GITHUB_HANDLE\>/tailspin-toys), then select it. Your repo will now be added to the Copilot app!
+> If the app opens to the sign-in screen later, select **Sign in to GitHub** and complete authentication before continuing.
 
 ## Get oriented in the workspace
 
 With your project connected, take a moment to learn your way around. The app organizes everything into a few areas in the sidebar:
 
+- **Home** — where you choose a project, configure a session, and send a prompt.
 - **Sessions** — where agents do their work. Each session runs in its own isolated workspace, so you can run several at once without their changes colliding. You'll start your first session in the next lesson.
 - **Quick chats** — lightweight conversations for questions and brainstorming that don't need a branch or workspace of their own. You'll try one at the end of this lesson.
 - **My work** — your issues and pull requests, surfaced through the app's **native GitHub integration**. From here you can browse and filter issues and pull requests, check CI status, start a session from an issue, and review pull requests — all without leaving the app.
 - **Automations** — saved agent tasks that run on a schedule or on demand. You'll create one near the end of the harness.
-
-### Find your seeded backlog
-
-Because the app integrates with GitHub natively, the work waiting in your repository shows up right inside the app. When you created your repository from the template, a backlog of issues was filed for you — let's confirm it's there.
-
-1. Select **My work** in the sidebar.
-2. The template seeded eight issues in your backlog. This harness focuses on the following three — confirm you can see them:
-
-   - Allow users to filter games by category and publisher
-   - Update our repository coding standards
-   - Implement pagination on the game list page
-
-3. Select an issue to read its details. Each issue is also a launch point for an agent session — you'll start work from these issues later in the harness.
-
-> [!NOTE]
-> The list of items in My work is automatically filtered to only display items from the repositories you've added to Copilot app. Want to see work items from other repos? Add them to the app!
 
 ## Try a quick chat
 
@@ -77,14 +62,13 @@ A great way to get comfortable with the app is to use it to learn about the *app
 
 ## Summary and next steps
 
-Congratulations! You've installed the GitHub Copilot app, connected your project, and explored your workspace. You learned how to:
+Congratulations! You've installed the GitHub Copilot app and explored your workspace. You learned how to:
 
 - install the app and sign in to GitHub.
-- add a project from its GitHub repository.
-- get oriented in the workspace and find your seeded backlog in **My work**.
+- get oriented in the workspace.
 - use a quick chat to ask a fast, throwaway question.
 
-Next, you'll start your first agent session and make your first change to the project — showing a star rating on the game cards. Continue to [Lesson 2 - Running your first agent session][next-lesson].
+Next, you'll take a guided tour through the app's core workflow by building and shipping a standalone space quiz. Continue to [Lesson 2 - Guided tour of the Copilot app][next-lesson].
 
 ## Resources
 
@@ -93,7 +77,7 @@ Next, you'll start your first agent session and make your first change to the pr
 - [Working with agent sessions in the GitHub Copilot app][agent-sessions]
 
 [ex0]: ../0-prerequisites/
-[next-lesson]: ../2-add-star-rating/
+[next-lesson]: ../2-guided-tour/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
 [getting-started]: https://docs.github.com/copilot/how-tos/github-copilot-app/getting-started
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions

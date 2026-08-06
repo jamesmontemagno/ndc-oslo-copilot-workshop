@@ -1,5 +1,5 @@
 ---
-title: "Part 5: Polish & Parallel Work"
+title: "Part 7: Polish & Parallel Work"
 ---
 
 Now that the app works and looks great, it's time to polish. This part is about splitting work up so you can improve responsiveness, error handling, and quality without doing everything in a single serial loop.
@@ -52,7 +52,7 @@ For extra quality gates, run the other built-in review agents too:
 
 Review the findings, fix anything you agree with, then run `/diff` again so you're clear on what changed.
 
-> 💡 `/review`, `/rubber-duck`, and `/security-review` are all **built-in agents** — you'll learn to build your *own* specialized agents in Part 6.
+> 💡 `/review`, `/rubber-duck`, and `/security-review` are all **built-in agents** — you'll learn to build your *own* specialized agents in Part 8.
 
 ## Task 4: Verify Everything
 
@@ -80,7 +80,7 @@ Once everything looks good, commit your working code.
 
 ---
 
-## ✅ Part 5 Complete!
+## Part 7 complete
 
 **What you learned:**
 

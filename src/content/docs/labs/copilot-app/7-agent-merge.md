@@ -1,5 +1,5 @@
 ---
-title: "Lesson 6 - Merging with Agent Merge"
+title: "Lesson 7 - Merging with Agent Merge"
 description: "Open the filtering pull request, review it in My work, and let Agent Merge fix what's blocking it and merge it for you — the top rung of the merge-automation ladder."
 authors:
   - geektrainer
@@ -55,7 +55,7 @@ You've automated several parts of the development process, including generating 
 - enabled Agent Merge on your filtering session.
 - watched it create the pull request, run CI, and merge when everything was green.
 
-Next, you'll explore **canvases** — a richer way to plan and visualize work with the agent. Continue to [Lesson 7 - Planning with canvases][next-lesson].
+Next, you'll explore **canvases** — a richer way to plan and visualize work with the agent. Continue to [Lesson 8 - Planning with canvases][next-lesson].
 
 ## Check your understanding
 
@@ -75,6 +75,6 @@ Agent Merge handles the mechanical pull-request finish line: monitoring checks a
 - [Managing issues and pull requests with the GitHub Copilot app][managing-issues-prs]
 - [About the GitHub Copilot app][about-copilot-app]
 
-[next-lesson]: ../7-canvases/
+[next-lesson]: ../8-canvases/
 [managing-issues-prs]: https://docs.github.com/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

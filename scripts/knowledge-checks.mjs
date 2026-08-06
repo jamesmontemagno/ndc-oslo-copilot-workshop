@@ -1,5 +1,5 @@
 export const knowledgeChecks = {
-  'cli/01-setup.md': {
+  'cli/03-mona-mayhem.md': {
     question:
       'When should you use a path-specific instruction file instead of `.github/copilot-instructions.md`?',
     answer:
@@ -8,7 +8,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions'
   },
-  'cli/02-plan-and-scaffold.md': {
+  'cli/04-plan-and-scaffold.md': {
     question:
       'Why use plan mode before asking Copilot to scaffold a feature that spans several files?',
     answer:
@@ -17,7 +17,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview'
   },
-  'cli/06-agents.md': {
+  'cli/08-agents.md': {
     question:
       'When is a custom agent a better fit than custom instructions?',
     answer:
@@ -26,7 +26,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features'
   },
-  'cli/07-skills.md': {
+  'cli/09-skills.md': {
     question:
       'Why is the `description` in a skill especially important?',
     answer:
@@ -35,7 +35,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills'
   },
-  'cli/08-mcp.md': {
+  'cli/10-mcp.md': {
     question:
       'Why should you review and limit an MCP server before connecting it to Copilot CLI?',
     answer:
@@ -44,7 +44,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers'
   },
-  'copilot-app/2-add-star-rating.md': {
+  'copilot-app/3-add-star-rating.md': {
     question:
       "Why does each agent session use its own git worktree, and why should you review the session's diff?",
     answer:
@@ -53,7 +53,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions'
   },
-  'copilot-app/4-build-filtering.md': {
+  'copilot-app/5-build-filtering.md': {
     question:
       'How do Interactive, Plan, and Autopilot modes change the amount of control you keep during a session?',
     answer:
@@ -62,7 +62,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions'
   },
-  'copilot-app/5-mcp-playwright.md': {
+  'copilot-app/6-mcp-playwright.md': {
     question:
       "What does MCP enable, and why should you evaluate a server's trustworthiness before connecting it?",
     answer:
@@ -70,7 +70,7 @@ export const knowledgeChecks = {
     sourceLabel: 'Understand Model Context Protocol',
     sourceUrl: 'https://docs.github.com/en/copilot/concepts/context/mcp'
   },
-  'copilot-app/6-agent-merge.md': {
+  'copilot-app/7-agent-merge.md': {
     question:
       'What does Agent Merge automate, and what responsibility does the developer retain?',
     answer:
@@ -79,7 +79,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests'
   },
-  'copilot-app/7-canvases.md': {
+  'copilot-app/8-canvases.md': {
     question:
       'What distinguishes a canvas from a session chat, and how does its storage location affect who can use it?',
     answer:
@@ -89,4 +89,3 @@ export const knowledgeChecks = {
       'https://docs.github.com/en/copilot/how-tos/github-copilot-app/working-with-canvas-extensions'
   }
 };
-

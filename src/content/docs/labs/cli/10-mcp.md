@@ -1,5 +1,5 @@
 ---
-title: "Part 8: MCP Servers — Connect Copilot to Live Data & Tools"
+title: "Part 10: MCP Servers — Connect Copilot to Live Data & Tools"
 ---
 
 So far Copilot only sees what you hand it: files you `@`-mention and its own training data. **MCP servers** change that. The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standard that connects Copilot to real, live tools — your GitHub repos, a real browser, up-to-date documentation, and more.
@@ -89,7 +89,7 @@ With the Playwright browser, submit the battle with both fields empty and confir
 validation error appears with the arcade styling.
 ```
 
-> 💡 This pairs beautifully with the `a11y-auditor` agent from Part 6 — audit the markup *and* verify the live behavior.
+> 💡 This pairs beautifully with the `a11y-auditor` agent from Part 8 — audit the markup *and* verify the live behavior.
 
 ---
 
@@ -166,7 +166,7 @@ A local MCP server runs code on your machine and exposes tools that Copilot can 
 
 </details>
 
-## ✅ Part 8 Complete
+## Part 10 complete
 
 You've learned how to:
 
@@ -175,4 +175,4 @@ You've learned how to:
 - Pull **current documentation** on demand with Context7
 - **Combine multiple servers** into a single workflow, and manage them via `/mcp` or the gallery
 
-> **Next:** Part 9 collects open-ended **bonus challenges** — put your agents, skills, and MCP servers to work extending Mona Mayhem.
+> **Next:** Part 11 collects open-ended **bonus challenges** — put your agents, skills, and MCP servers to work extending Mona Mayhem.

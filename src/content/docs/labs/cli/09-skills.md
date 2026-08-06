@@ -1,8 +1,8 @@
 ---
-title: "Part 7: Skills — Packaged, Reusable Expertise"
+title: "Part 9: Skills — Packaged, Reusable Expertise"
 ---
 
-In Part 6 you built **agents** — personas you deliberately switch into. **Skills** are the next layer: packaged expertise that Copilot loads **automatically** the moment your prompt matches, no switching required.
+In Part 8 you built **agents** — personas you deliberately switch into. **Skills** are the next layer: packaged expertise that Copilot loads **automatically** the moment your prompt matches, no switching required.
 
 Think of skills as power tools on a shelf. You don't announce *"I will now use the drill."* You reach for the right tool when the job calls for it. Copilot does the same — it reads your prompt, matches it against each skill's description, and pulls in the relevant one.
 
@@ -176,7 +176,7 @@ Copilot uses the description to decide whether a skill is relevant to the curren
 
 </details>
 
-## ✅ Part 7 Complete
+## Part 9 complete
 
 You've learned how to:
 
@@ -185,4 +185,4 @@ You've learned how to:
 - Trigger skills **automatically** or invoke them **directly** by name
 - **Manage and share** skills with `/skills`, the `copilot skill` command, plugins, and awesome-copilot
 
-> **Next:** In Part 8 you'll connect Copilot to live data and a real browser with **MCP servers**.
+> **Next:** In Part 10 you'll connect Copilot to live data and a real browser with **MCP servers**.

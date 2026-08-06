@@ -1,27 +1,10 @@
 ---
-title: "Part 1: Setup & Context Engineering"
+title: "Part 1: Set Up GitHub Copilot CLI"
 ---
 
-In this part you'll set up your development environment **and** teach Copilot about the codebase — so every future prompt starts with the right context.
+Start by installing GitHub Copilot CLI, signing in, and confirming that the command is ready. You won't clone the Mona Mayhem repository yet; first you'll verify the CLI independently.
 
-## Section 1: Initial Setup
-
-### Step 1: Clone the CLI starter
-
-Clone the dedicated Mona Mayhem starter, then open it in your editor:
-
-```bash
-git clone https://github.com/jamesmontemagno/workshop-mona-mayhem.git
-cd workshop-mona-mayhem
-code .
-```
-
-Keep all CLI lab work in this repository. Fork the starter first only when you want to push changes or use repository-backed GitHub features.
-
-
-
-
-### Step 2: Install GitHub Copilot CLI
+## Step 1: Install GitHub Copilot CLI
 
 Use the installation path that matches your machine:
 
@@ -34,115 +17,74 @@ Use the installation path that matches your machine:
 - **Homebrew (macOS/Linux)**
 
   ```bash
-  brew install copilot-cli
+  brew install --cask copilot-cli
   ```
 
 - **WinGet (Windows)**
 
-  ```bash
+  ```powershell
   winget install GitHub.Copilot
   ```
 
-### Step 3: Start the App and Authenticate the CLI
+If Copilot CLI is already installed, use the same command to update it.
 
-1. In the terminal at `workshop-mona-mayhem`, install dependencies and start the app:
+## Step 2: Verify the installation
 
-   ```bash
-   npm install
-   npm run dev
-   ```
+Open a new terminal and run:
 
-2. Open a **second terminal** in the same folder and start Copilot CLI:
+```bash
+copilot --version
+```
+
+If your terminal cannot find `copilot`, close and reopen the terminal so it reloads your `PATH`, then try again.
+
+## Step 3: Start and authenticate
+
+1. Start an interactive session:
 
    ```bash
    copilot
    ```
 
-3. In the interactive session, enter:
+2. If prompted, confirm that you trust the current folder. Only trust folders whose contents you know are safe.
+3. Enter:
 
-   ```
+   ```text
    /login
    ```
 
-4. Follow the device flow prompts, then confirm that you trust the repository when the CLI asks for approval.
+4. Follow the device flow in your browser to authenticate with GitHub.
+5. Return to the terminal when authentication completes.
 
-> ✅ **You now have the app preview in one terminal and Copilot CLI ready in another.**
+> [!NOTE]
+> Copilot Business and Copilot Enterprise users need the Copilot CLI policy enabled by their administrator.
 
+## Step 4: Confirm the CLI is ready
 
-## Section 2: Context Engineering
+Inside the interactive session:
 
-Context engineering is how you teach AI about your codebase. The better the context, the better every future response will be.
+1. Run `/help` and confirm the command list appears.
+2. Run `/model` and select **GPT-5.3-Codex** if it is available. If it is not listed, select **Auto**.
+3. Run `/usage` to display the current session statistics.
+4. Run `/exit` to leave the session.
 
+## Part 1 complete
 
+You have:
 
+- installed or updated GitHub Copilot CLI.
+- authenticated with GitHub.
+- verified the CLI and slash commands, and selected GPT-5.3-Codex or the Auto fallback.
 
-### Task 1: Generate Repository Instructions with /init
+Next, you'll use a fresh folder to take a guided tour from prompt to pull request. Continue to [Part 2: Guided CLI tour][next-part].
 
-Let's use `/init` to generate a workspace instructions file for Copilot:
+## Resources
 
-1. In Copilot CLI, type:
+- [Installing GitHub Copilot CLI][install-cli]
+- [Authenticating GitHub Copilot CLI][authenticate-cli]
+- [Copilot CLI command reference][cli-reference]
 
-   ```
-   /init simple instructions with a project overview, build/dev commands, and Astro best practices, (ignore the workshop).
-   ```
-
-2. Review the generated file — Copilot will analyze your project and create a `.github/copilot-instructions.md`.
-3. Commit the instructions file.
-
-> **Result:** Future CLI sessions automatically inherit repository-specific instructions from `.github/copilot-instructions.md`.
-
-### Task 2: Tune Your CLI Environment
-
-Practice the CLI controls that make later steps smoother:
-
-1. Run `/help` to scan the available slash commands.
-2. Use `/model` to inspect the models available to you.
-3. If Copilot has learned too many approvals during experimentation, reset them with:
-
-   ```
-   /reset-allowed-tools
-   ```
-
-4. If your repository lives inside a larger parent directory, use `/add-dir PATH` to explicitly widen the allowed workspace.
-5. Turn on cross-session memory with `/memory` so Copilot remembers useful facts about how you work, and use `/instructions` to see which instruction files are loaded.
-
-> 💡 The CLI docs recommend concise custom instructions plus explicit tool permissions so Copilot stays fast and predictable.
-
-### Task 3: Explore the Project from the Terminal
-
-Try these prompts inside Copilot CLI:
-
-- `Give me an overview of this project.`
-- `@src/pages/api/contributions/[username].ts What is this file for and what needs to be built here?`
-- `@src/pages/index.astro What exists here and what would I need to add to build the battle page?`
-
-If you want a quick one-shot answer outside the interactive session, try:
-
-```bash
-copilot -p "Summarize the architecture of this repo in 5 bullet points"
-```
-
-> **Result:** You now have instructions, command awareness, and a feel for how to feed files into Copilot CLI context.
-
-
-## Check your understanding
-
-When should you use a path-specific instruction file instead of `.github/copilot-instructions.md`?
-
-<details>
-<summary>Check your answer</summary>
-
-Use `.github/copilot-instructions.md` for project-wide rules that should shape every request, such as build commands and repository conventions. Use a file under `.github/instructions/` with an `applyTo` glob when guidance only matters for certain paths or file types. Keeping specialized rules scoped avoids loading irrelevant context into every conversation.
-
-**Go deeper:** [Add custom instructions for Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
-
-</details>
-
-## ✅ Part 1 Complete
-
-You've learned how to:
-
-- **Set up** the repo and local development environment
-- **Generate instructions** with `/init` so Copilot understands your project and design direction
-- **Establish a review habit** before applying generated changes
-- **Explore the codebase** with context-rich prompts
+[next-part]: ../02-guided-tour/
+[install-cli]: https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli
+[authenticate-cli]: https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli
+[cli-reference]: https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference

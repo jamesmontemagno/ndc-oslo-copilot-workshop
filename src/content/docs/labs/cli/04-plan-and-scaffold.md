@@ -1,5 +1,5 @@
 ---
-title: "Part 2: Plan & Scaffold"
+title: "Part 4: Plan & Scaffold"
 ---
 
 Before writing any code, let's use Copilot's planning workflows to think through the architecture. Planning first helps you design better systems and gives Copilot the context it needs to generate higher-quality code.
@@ -70,7 +70,7 @@ Before writing any code, let's use Copilot's planning workflows to think through
    Scope for this step — scaffold only. Plan the HTML structure and minimal,
    functional styling. Do NOT plan or add any JavaScript, data fetching,
    validation, or graph rendering yet, and leave the Battle button as a
-   placeholder with no click behavior — we wire that up in Part 3.
+   placeholder with no click behavior — we wire that up in Part 5.
    ```
 
 2. **Review and iterate** on the plan — ask questions, suggest changes, refine the approach.
@@ -91,7 +91,7 @@ Before writing any code, let's use Copilot's planning workflows to think through
    - The game title
    - Two username input fields (Player 1 and Player 2)
    - A battle button
-3. The button won't work yet — that's expected! We haven't wired up the interaction logic; that comes in Part 3. If Copilot already added the fetch/render logic or heavy theming, it jumped ahead — undo those extras (or revert the file) so Parts 3 and 4 land as designed.
+3. The button won't work yet — that's expected! We haven't wired up the interaction logic; that comes in Part 5. If Copilot already added the fetch/render logic or heavy theming, it jumped ahead — undo those extras (or revert the file) so Parts 5 and 6 land as designed.
 
 ---
 
@@ -108,7 +108,7 @@ Plan mode separates deciding what to build from changing the code. Copilot can i
 
 </details>
 
-## ✅ Part 2 Complete!
+## Part 4 complete
 
 You've learned how to:
 
