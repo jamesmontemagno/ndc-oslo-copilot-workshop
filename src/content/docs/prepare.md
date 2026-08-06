@@ -1,6 +1,6 @@
 ---
 title: "Prepare for the workshop"
-description: "Install and verify everything needed for the two NDC Oslo GitHub Copilot labs."
+description: "Install and verify the shared accounts and tools needed for the NDC Oslo GitHub Copilot workshop."
 ---
 
 Complete this checklist before the workshop. Both labs work on Windows, macOS, or Linux.
@@ -18,39 +18,32 @@ Complete this checklist before the workshop. Both labs work on Windows, macOS, o
 |---|---|---|
 | [Git](https://git-scm.com/downloads) | Both labs | `git --version` |
 | [Node.js 22 or 24](https://nodejs.org/) | Both labs | `node --version` |
-| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) | CLI lab | `copilot --version` |
+| [GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/getting-started) | Copilot App lab | Launch the app and confirm you are signed in |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) | CLI lab | `copilot --version` |
 | [Visual Studio Code](https://code.visualstudio.com/) | CLI lab | `code --version` |
 | Edge or Chrome | Browser-based verification | Open the browser once |
 
-## Verify Copilot CLI
+## Sign in before arriving
 
-```console
-copilot --version
-copilot login
-```
+1. Launch the GitHub Copilot app and confirm it opens to your signed-in workspace.
+2. Authenticate the CLI:
 
-Complete the browser authentication flow. If your organization restricts Copilot, use a personal GitHub account with Copilot access for the workshop.
+   ```console
+   copilot login
+   ```
 
-## Get the project for each lab
+   Complete the browser device flow when prompted.
 
-This repository is the workshop website; runnable projects live separately. Get only the project for the lab you are starting:
-
-| Lab | Open this project |
-|---|---|
-| Copilot App | Create a separate repository from the [Tailspin Toys template](https://github.com/github-samples/tailspin-toys), then open it in the Copilot app |
-| Copilot CLI | `git clone https://github.com/jamesmontemagno/workshop-mona-mayhem.git`, then `cd workshop-mona-mayhem` and run `copilot` |
-
-Tailspin Toys is intentionally separate because the Copilot App exercises use its repository-backed issues, branches, and pull requests. Its Lesson 0 walks you through creating that repository.
-
-Direct cloning is enough for the local CLI exercises. Fork Mona Mayhem first when you want to push changes or use repository-backed GitHub features.
+If your organization manages Copilot access, confirm that the GitHub Copilot app and Copilot CLI policies are enabled before the workshop. Contact your administrator or a facilitator if either sign-in is unavailable.
 
 ## Quick preflight
 
 Before arriving, confirm:
 
-1. `git`, `node`, and `copilot` return versions without errors.
-2. You can authenticate with GitHub and Copilot.
-3. You can access the separate Tailspin Toys template repository.
-4. You can clone the [Mona Mayhem starter](https://github.com/jamesmontemagno/workshop-mona-mayhem).
+1. `git`, `node`, `copilot`, and `code` return versions without errors.
+2. The GitHub Copilot app launches and shows you as signed in.
+3. Copilot CLI is authenticated.
+4. You can create repositories and pull requests in your GitHub account.
+5. Edge or Chrome opens normally.
 
 When everything is ready, [begin with the Copilot App lab](/labs/copilot-app/).
