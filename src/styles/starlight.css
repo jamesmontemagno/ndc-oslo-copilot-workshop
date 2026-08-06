@@ -1,0 +1,186 @@
+:root {
+  --sl-font: var(--font-sans);
+  --sl-font-mono: var(--font-mono);
+  --sl-color-bg: var(--workshop-bg);
+  --sl-color-bg-nav: color-mix(in oklch, var(--workshop-bg) 94%, transparent);
+  --sl-color-bg-sidebar: var(--workshop-surface);
+  --sl-color-hairline: var(--workshop-border);
+  --sl-color-text: var(--workshop-ink);
+  --sl-color-text-accent: var(--workshop-accent);
+  --sl-color-accent: var(--workshop-accent);
+  --sl-color-accent-high: var(--workshop-accent);
+  --sl-color-accent-low: color-mix(in oklch, var(--workshop-accent) 16%, var(--workshop-bg));
+  --sl-content-width: 72ch;
+}
+
+.site-title {
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+.sidebar-content a[aria-current='page'] {
+  background: var(--workshop-primary);
+  color: oklch(0.98 0.004 80);
+}
+
+.sidebar-content a[aria-current='page'] span {
+  color: inherit;
+}
+
+.sidebar-content a[data-lesson-tracked] {
+  position: relative;
+  padding-inline-end: 2.15rem;
+}
+
+.lesson-complete-indicator {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: 0.65rem;
+  display: grid;
+  width: 1.1rem;
+  height: 1.1rem;
+  place-items: center;
+  border-radius: 0.3rem;
+  background: var(--workshop-success);
+  color: oklch(0.16 0.02 145);
+  font: 800 0.72rem/1 var(--font-sans);
+  opacity: 0;
+  transform: translateY(-50%) scale(0.75);
+  transition:
+    opacity 180ms var(--workshop-ease),
+    transform 180ms var(--workshop-ease);
+}
+
+:root[data-theme='light'] .lesson-complete-indicator {
+  color: oklch(0.98 0.004 80);
+}
+
+.sidebar-content a[data-lesson-complete='true'] .lesson-complete-indicator {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.lesson-complete-label {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.sl-markdown-content {
+  font-size: 1.025rem;
+  line-height: 1.72;
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+  letter-spacing: -0.025em;
+}
+
+.sl-markdown-content a:not(.sl-link-button) {
+  text-underline-offset: 0.18em;
+}
+
+.sl-markdown-content pre {
+  border: 1px solid var(--workshop-border);
+  box-shadow: 0 16px 50px oklch(0 0 0 / 0.16);
+}
+
+.workshop-tabs {
+  margin-block: 1.5rem;
+}
+
+.workshop-tabs [role='tablist'] {
+  display: flex;
+  gap: 0.5rem;
+  padding-block-end: 0.75rem;
+  border-bottom: 1px solid var(--workshop-border);
+}
+
+.workshop-tabs [role='tab'] {
+  min-height: 2.75rem;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--workshop-border);
+  border-radius: 0.55rem;
+  background: transparent;
+  color: var(--workshop-muted);
+  font: 700 0.9rem/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.workshop-tabs [role='tab'][aria-selected='true'] {
+  border-color: var(--workshop-accent);
+  background: color-mix(in oklch, var(--workshop-accent) 18%, var(--workshop-surface));
+  color: var(--workshop-ink);
+}
+
+.workshop-tabs [role='tabpanel'] {
+  padding-block-start: 1rem;
+}
+
+.workshop-tabs [role='tabpanel'] > :first-child {
+  margin-block-start: 0;
+}
+
+.sl-markdown-content input[data-workshop-task] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-block: 0.2rem 0;
+  accent-color: var(--workshop-success);
+  cursor: pointer;
+  opacity: 1;
+}
+
+.sl-markdown-content input[data-workshop-task]:focus-visible {
+  outline: 3px solid var(--sl-color-accent-high);
+  outline-offset: 3px;
+}
+
+.sl-markdown-content li:has(> input[data-workshop-task]:checked) {
+  color: color-mix(in oklch, var(--workshop-ink) 72%, var(--workshop-success));
+}
+
+.lesson-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block: 3rem 1rem;
+  padding: 1rem;
+  border: 1px solid var(--workshop-border);
+  border-radius: 0.8rem;
+  background: var(--workshop-surface);
+}
+
+.lesson-progress p {
+  margin: 0;
+  color: var(--workshop-muted);
+}
+
+.lesson-progress button {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--workshop-primary);
+  border-radius: 0.55rem;
+  background: var(--workshop-primary);
+  color: oklch(0.98 0.004 80);
+  font: 700 0.9rem/1 var(--font-sans);
+  cursor: pointer;
+}
+
+.lesson-progress button[data-complete='true'] {
+  border-color: var(--workshop-success);
+  background: transparent;
+  color: var(--workshop-success);
+}
+
+@media (max-width: 35rem) {
+  .lesson-progress {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

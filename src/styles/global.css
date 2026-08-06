@@ -1,0 +1,96 @@
+@import '@fontsource-variable/archivo';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/600.css';
+
+:root {
+  color-scheme: dark;
+  --workshop-bg: oklch(0.11 0.025 255);
+  --workshop-surface: oklch(0.155 0.03 255);
+  --workshop-raised: oklch(0.20 0.035 255);
+  --workshop-ink: oklch(0.96 0.006 220);
+  --workshop-muted: oklch(0.72 0.03 240);
+  --workshop-primary: oklch(0.55 0.22 255);
+  --workshop-primary-strong: oklch(0.48 0.20 255);
+  --workshop-accent: oklch(0.72 0.18 30);
+  --workshop-success: oklch(0.78 0.15 145);
+  --workshop-focus: oklch(0.80 0.14 220);
+  --workshop-border: oklch(0.30 0.035 255);
+  --workshop-shadow: 0 28px 80px oklch(0.05 0.02 255 / 0.5);
+  --workshop-max: 75rem;
+  --workshop-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-sans: 'Archivo Variable', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --workshop-bg: oklch(0.985 0.004 220);
+  --workshop-surface: oklch(0.955 0.012 220);
+  --workshop-raised: oklch(0.92 0.018 220);
+  --workshop-ink: oklch(0.14 0.03 255);
+  --workshop-muted: oklch(0.40 0.03 255);
+  --workshop-primary: oklch(0.45 0.20 255);
+  --workshop-primary-strong: oklch(0.38 0.18 255);
+  --workshop-accent: oklch(0.52 0.16 30);
+  --workshop-success: oklch(0.42 0.12 145);
+  --workshop-focus: oklch(0.45 0.14 220);
+  --workshop-border: oklch(0.82 0.016 220);
+  --workshop-shadow: 0 24px 70px oklch(0.15 0.02 255 / 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 20rem;
+  margin: 0;
+  background: var(--workshop-bg);
+  color: var(--workshop-ink);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--workshop-focus);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
