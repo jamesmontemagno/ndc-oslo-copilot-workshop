@@ -40,6 +40,10 @@ code .
 
 Install the recommended extensions when prompted. If you want to push your workshop changes, fork the repository first and clone your fork instead.
 
+## Prepare for the Copilot App lab
+
+You do not need to clone a project for this track. The guided tour creates a standalone `space-quiz` folder, and the following lesson guides you through creating Tailspin Toys from its GitHub template.
+
 If your organization manages Copilot access, confirm that VS Code agent features and the GitHub Copilot app are enabled before the workshop. Contact your administrator or a facilitator if either sign-in is unavailable.
 
 ## Quick preflight

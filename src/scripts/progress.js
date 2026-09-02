@@ -7,13 +7,14 @@
     'copilot-app': [
       '0-prerequisites',
       '1-install-copilot-app',
-      '2-add-star-rating',
-      '3-custom-instructions',
-      '4-build-filtering',
-      '5-mcp-playwright',
-      '6-agent-merge',
-      '7-canvases',
-      '8-review'
+      '2-guided-tour',
+      '3-add-star-rating',
+      '4-custom-instructions',
+      '5-build-filtering',
+      '6-mcp-playwright',
+      '7-agent-merge',
+      '8-canvases',
+      '9-review'
     ]
   };
 

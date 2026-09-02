@@ -15,6 +15,19 @@ const required = [
 ];
 const errors = [];
 const expectedTrackDirectories = ['_images', 'copilot-app', 'vscode'];
+const expectedCopilotAppLessons = {
+  '0-prerequisites.md': 0,
+  '1-install-copilot-app.md': 1,
+  '2-guided-tour.md': 2,
+  '3-add-star-rating.md': 3,
+  '4-custom-instructions.md': 4,
+  '5-build-filtering.md': 5,
+  '6-mcp-playwright.md': 6,
+  '7-agent-merge.md': 7,
+  '8-canvases.md': 8,
+  '9-review.md': 9
+};
+const expectedCopilotAppPages = [...Object.keys(expectedCopilotAppLessons), 'index.md'];
 const actualTrackDirectories = readdirSync(labsDocsRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
@@ -22,6 +35,26 @@ const actualTrackDirectories = readdirSync(labsDocsRoot, { withFileTypes: true }
 
 if (actualTrackDirectories.join(',') !== expectedTrackDirectories.join(',')) {
   errors.push(`Unexpected workshop content directories: ${actualTrackDirectories.join(', ')}`);
+}
+const actualCopilotAppPages = readdirSync(join(labsDocsRoot, 'copilot-app'))
+  .filter((name) => name.endsWith('.md'))
+  .sort();
+if (actualCopilotAppPages.join(',') !== expectedCopilotAppPages.join(',')) {
+  errors.push(`Unexpected Copilot App lessons: ${actualCopilotAppPages.join(', ')}`);
+}
+if (!existsSync(join(root, 'scripts', 'workshop-overlays', 'copilot-app', '2-guided-tour.md'))) {
+  errors.push('Missing durable Copilot App guided tour overlay.');
+}
+const copilotAppOverview = readFileSync(join(labsDocsRoot, 'copilot-app', 'index.md'), 'utf8');
+for (const [name, lesson] of Object.entries(expectedCopilotAppLessons)) {
+  const markdown = readFileSync(join(labsDocsRoot, 'copilot-app', name), 'utf8');
+  if (!markdown.includes(`title: "Lesson ${lesson} -`)) {
+    errors.push(`Incorrect lesson number in Copilot App page: ${name}`);
+  }
+  const route = name.slice(0, -3);
+  if (!copilotAppOverview.includes(`${route}/`)) {
+    errors.push(`Missing Copilot App overview link: ${route}/`);
+  }
 }
 if (existsSync(join(root, 'labs'))) {
   errors.push('Runnable lab projects must live in their dedicated external repositories.');

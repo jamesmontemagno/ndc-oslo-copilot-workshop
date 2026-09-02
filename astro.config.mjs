@@ -59,13 +59,14 @@ export default defineConfig({
             { label: 'Lab overview', link: '/labs/copilot-app/' },
             { label: 'Prerequisites', link: '/labs/copilot-app/0-prerequisites/' },
             { label: 'Install the app', link: '/labs/copilot-app/1-install-copilot-app/' },
-            { label: 'First Tailspin session', link: '/labs/copilot-app/2-add-star-rating/' },
-            { label: 'Custom instructions', link: '/labs/copilot-app/3-custom-instructions/' },
-            { label: 'Build with Autopilot', link: '/labs/copilot-app/4-build-filtering/' },
-            { label: 'Playwright MCP', link: '/labs/copilot-app/5-mcp-playwright/' },
-            { label: 'Agent Merge', link: '/labs/copilot-app/6-agent-merge/' },
-            { label: 'Canvases', link: '/labs/copilot-app/7-canvases/' },
-            { label: 'Review', link: '/labs/copilot-app/8-review/' }
+            { label: 'Guided app tour', link: '/labs/copilot-app/2-guided-tour/' },
+            { label: 'First Tailspin session', link: '/labs/copilot-app/3-add-star-rating/' },
+            { label: 'Custom instructions', link: '/labs/copilot-app/4-custom-instructions/' },
+            { label: 'Build with Autopilot', link: '/labs/copilot-app/5-build-filtering/' },
+            { label: 'Playwright MCP', link: '/labs/copilot-app/6-mcp-playwright/' },
+            { label: 'Agent Merge', link: '/labs/copilot-app/7-agent-merge/' },
+            { label: 'Canvases', link: '/labs/copilot-app/8-canvases/' },
+            { label: 'Review', link: '/labs/copilot-app/9-review/' }
           ]
         },
         { label: 'Resources & attribution', link: '/resources/' }

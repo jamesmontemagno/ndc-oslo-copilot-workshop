@@ -24,6 +24,27 @@ const cachedRoot =
     : null;
 const temporaryRoot = cachedRoot ? null : mkdtempSync(join(tmpdir(), 'ndc-oslo-workshops-'));
 const contentRoot = join(root, 'src', 'content', 'docs', 'labs');
+const overlayRoot = join(root, 'scripts', 'workshop-overlays');
+
+const copilotAppDestinationNames = {
+  '2-add-star-rating.md': '3-add-star-rating.md',
+  '3-custom-instructions.md': '4-custom-instructions.md',
+  '4-build-filtering.md': '5-build-filtering.md',
+  '5-mcp-playwright.md': '6-mcp-playwright.md',
+  '6-agent-merge.md': '7-agent-merge.md',
+  '7-canvases.md': '8-canvases.md',
+  '8-review.md': '9-review.md'
+};
+
+const shiftedCopilotAppRoutes = {
+  '2-add-star-rating': '3-add-star-rating',
+  '3-custom-instructions': '4-custom-instructions',
+  '4-build-filtering': '5-build-filtering',
+  '5-mcp-playwright': '6-mcp-playwright',
+  '6-agent-merge': '7-agent-merge',
+  '7-canvases': '8-canvases',
+  '8-review': '9-review'
+};
 
 rmSync(contentRoot, { recursive: true, force: true });
 mkdirSync(contentRoot, { recursive: true });
@@ -101,6 +122,7 @@ const addKnowledgeCheck = (markdown, destinationFile) => {
     .replaceAll('\\', '/');
   const check = knowledgeChecks[key];
   if (!check) return markdown;
+  if (markdown.includes('## Check your understanding')) return markdown;
 
   const block = `## Check your understanding
 
@@ -156,6 +178,9 @@ const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
   let markdown = readFileSync(sourceFile, 'utf8')
     .replace(/^\uFEFF/, '')
     .replace(/\r\n/g, '\n');
+  if (options.transform) {
+    markdown = options.transform(markdown);
+  }
   const isIndex = basename(destinationFile) === 'index.md';
   markdown = normalizeLinks(markdown, isIndex);
 
@@ -197,7 +222,8 @@ const importMarkdownDirectory = (sourceDirectory, destinationDirectory, options 
   for (const name of readdirSync(sourceDirectory)) {
     if (!name.endsWith('.md')) continue;
     if (options.exclude?.includes(name)) continue;
-    const destinationName = options.indexFile === name ? 'index.md' : name;
+    const destinationName =
+      options.indexFile === name ? 'index.md' : options.destinationNames?.[name] || name;
     const fileOptions =
       options.introFiles && !options.introFiles.includes(name)
         ? { ...options, intro: null }
@@ -208,6 +234,16 @@ const importMarkdownDirectory = (sourceDirectory, destinationDirectory, options 
       fileOptions
     );
   }
+};
+
+const shiftCopilotAppLesson = (markdown) => {
+  const routePattern = new RegExp(
+    `\\b(${Object.keys(shiftedCopilotAppRoutes).join('|')})\\b`,
+    'g'
+  );
+  return markdown
+    .replace(/\bLesson ([2-8])\b/g, (_, lesson) => `Lesson ${Number(lesson) + 1}`)
+    .replace(routePattern, (route) => shiftedCopilotAppRoutes[route]);
 };
 
 importMarkdownDirectory(
@@ -248,10 +284,18 @@ importMarkdownDirectory(
   join(contentRoot, 'copilot-app'),
   {
     indexFile: 'README.md',
+    destinationNames: copilotAppDestinationNames,
     introFiles: ['README.md', '0-prerequisites.md'],
     intro:
-      '> [!NOTE]\n> This lab intentionally uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys), not a folder from the combined workshop repository. Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own repository from that template.'
+      '> [!NOTE]\n> This lab starts with a standalone `space-quiz` project for a guided tour, then uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys) for the remaining lessons.',
+    transform: shiftCopilotAppLesson
   }
+);
+
+importMarkdownDirectory(
+  join(overlayRoot, 'copilot-app'),
+  join(contentRoot, 'copilot-app'),
+  { indexFile: 'README.md' }
 );
 
 const appImagesSource = join(sources['copilot-app'], 'docs', '_images');
