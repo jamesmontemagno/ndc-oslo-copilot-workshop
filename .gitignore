@@ -4,3 +4,5 @@ dist/
 .impeccable/live/session.json
 .DS_Store
 .playwright-mcp/
+# Generated from the pinned repositories in workshops.sources.json.
+src/content/docs/labs/

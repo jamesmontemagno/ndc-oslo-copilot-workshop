@@ -10,11 +10,11 @@ const labsDocsRoot = join(docsRoot, 'labs');
 const required = [
   'prepare.md',
   'resources.md',
+  'labs/vscode/index.md',
   'labs/copilot-app/index.md',
-  'labs/cli/index.md'
 ];
 const errors = [];
-const expectedTrackDirectories = ['_images', 'cli', 'copilot-app'];
+const expectedTrackDirectories = ['_images', 'copilot-app', 'vscode'];
 const actualTrackDirectories = readdirSync(labsDocsRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
@@ -29,8 +29,8 @@ if (existsSync(join(root, 'labs'))) {
 
 const sourceManifest = JSON.parse(readFileSync(join(root, 'workshops.sources.json'), 'utf8'));
 const sourceKeys = sourceManifest.sources.map((source) => source.key);
-if (sourceKeys.join(',') !== 'copilot-app,cli') {
-  errors.push('Workshop sources must contain only Copilot App and Copilot CLI, in that order.');
+if (sourceKeys.join(',') !== 'vscode,copilot-app') {
+  errors.push('Workshop sources must contain only VS Code and Copilot App, in that order.');
 }
 
 const favicon = readFileSync(join(root, 'public', 'favicon.svg'), 'utf8');
@@ -67,7 +67,7 @@ const walk = (directory) => {
     if (entry.isFile() && ['.md', '.mdx'].includes(extname(entry.name))) {
       const markdown = readFileSync(path, 'utf8');
       if (!/^---\r?\n/.test(markdown)) errors.push(`Missing frontmatter: ${path}`);
-      if (/]\([^)\s]+\.md(?:#[^)]+)?\)/.test(markdown)) {
+      if (/]\((?!https?:\/\/)[^)\s]+\.md(?:#[^)]+)?\)/.test(markdown)) {
         errors.push(`Unnormalized Markdown link: ${path}`);
       }
       if (markdown.includes('Add from MCP MCP')) {

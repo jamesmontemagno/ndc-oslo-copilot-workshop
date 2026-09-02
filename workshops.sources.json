@@ -1,19 +1,19 @@
 {
   "sources": [
     {
+      "key": "vscode",
+      "name": "VS Code GitHub Copilot Agent Lab",
+      "repository": "https://github.com/copilot-dev-days/agent-lab-typescript.git",
+      "commit": "59fef1e0ee65501cb59b2eb65288efa3b298f389",
+      "cacheDirectory": "agent-lab-typescript",
+      "license": "MIT"
+    },
+    {
       "key": "copilot-app",
       "name": "Copilot Workshops",
       "repository": "https://github.com/github-samples/copilot-workshops.git",
       "commit": "1d1a341ac911478700afc667b12d9874f84ae33b",
       "cacheDirectory": "copilot-workshops",
-      "license": "MIT"
-    },
-    {
-      "key": "cli",
-      "name": "Mona Mayhem",
-      "repository": "https://github.com/cinnamon-msft/kayla-chaos.git",
-      "commit": "bb0dd12c2edf7a9af32c71b5e26f95eb26bf6908",
-      "cacheDirectory": "kayla-chaos",
       "license": "MIT"
     }
   ]

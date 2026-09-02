@@ -3,30 +3,17 @@
   const taskStorageKey = 'ndc-oslo-workshop-task-progress-v1';
   const base = document.querySelector('meta[name="workshop-base"]')?.content || '/';
   const labs = {
+    vscode: ['01-setup', '02-design', '03-quiz-master', '04-multi-agent', '05-complete'],
     'copilot-app': [
       '0-prerequisites',
       '1-install-copilot-app',
-      '2-guided-tour',
-      '3-add-star-rating',
-      '4-custom-instructions',
-      '5-build-filtering',
-      '6-mcp-playwright',
-      '7-agent-merge',
-      '8-canvases',
-      '9-review'
-    ],
-    cli: [
-      '01-setup',
-      '02-guided-tour',
-      '03-mona-mayhem',
-      '04-plan-and-scaffold',
-      '05-agent-mode',
-      '06-design-vibes',
-      '07-polish',
-      '08-agents',
-      '09-skills',
-      '10-mcp',
-      '11-bonus'
+      '2-add-star-rating',
+      '3-custom-instructions',
+      '4-build-filtering',
+      '5-mcp-playwright',
+      '6-agent-merge',
+      '7-canvases',
+      '8-review'
     ]
   };
 
@@ -82,7 +69,7 @@
   const updateLanding = () => {
     let completed = 0;
     let total = 0;
-    let resumeHref = `${base}labs/copilot-app/0-prerequisites/`;
+    let resumeHref = `${base}labs/vscode/01-setup/`;
     let foundResume = false;
 
     Object.entries(labs).forEach(([lab, steps]) => {

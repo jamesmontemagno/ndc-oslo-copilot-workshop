@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "npm run validate:content && astro build",
+    "dev": "npm run import:workshops && astro dev",
+    "build": "npm run import:workshops && npm run validate:content && astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "npm run import:workshops && astro check",
     "validate:content": "node scripts/validate-content.mjs",
-    "import:workshops": "node scripts/import-workshops.mjs"
+    "import:workshops": "node scripts/import-workshops.mjs",
+    "update:workshop-pins": "node scripts/update-workshop-pins.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

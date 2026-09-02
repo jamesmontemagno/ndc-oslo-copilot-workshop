@@ -1,0 +1,79 @@
+name: Sync workshop sources
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-workshop-sources
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: automation/update-workshop-pins
+      GH_TOKEN: ${{ github.token }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Update source pins
+        run: node scripts/update-workshop-pins.mjs
+
+      - name: Detect updates
+        id: updates
+        shell: bash
+        run: |
+          if git diff --quiet -- workshops.sources.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate updated workshops
+        if: steps.updates.outputs.changed == 'true'
+        run: |
+          npm ci
+          npm run check
+          npm run build
+
+      - name: Commit source pins
+        if: steps.updates.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH_NAME"
+          git add workshops.sources.json
+          git commit -m "Update workshop source pins"
+          git fetch origin "$BRANCH_NAME:refs/remotes/origin/$BRANCH_NAME" || true
+          git push --force-with-lease origin "HEAD:refs/heads/$BRANCH_NAME"
+
+      - name: Create or refresh pull request
+        if: steps.updates.outputs.changed == 'true'
+        shell: bash
+        run: |
+          pr_number="$(gh pr list --head "$BRANCH_NAME" --state open --json number --jq '.[0].number')"
+          body="Updates pinned upstream workshop commits after importing and validating the latest content."
+
+          if [ -n "$pr_number" ]; then
+            gh pr edit "$pr_number" \
+              --title "Update workshop source pins" \
+              --body "$body"
+          else
+            gh pr create \
+              --base "${{ github.event.repository.default_branch }}" \
+              --head "$BRANCH_NAME" \
+              --title "Update workshop source pins" \
+              --body "$body"
+          fi

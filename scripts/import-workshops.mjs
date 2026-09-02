@@ -68,17 +68,6 @@ const titleFromMarkdown = (markdown, fallback) => {
     .trim();
 };
 
-const stripTrack = (markdown, trackToRemove) =>
-  markdown
-    .replace(
-      new RegExp(
-        `<!-- track:${trackToRemove}:start -->[\\s\\S]*?<!-- track:${trackToRemove}:end -->`,
-        'g'
-      ),
-      ''
-    )
-    .replace(/<!-- track:(?:cli|vscode):(start|end) -->/g, '');
-
 const normalizeLinks = (markdown, isIndex) =>
   markdown.replace(
     /(\]\(|:\s*)(?:\.\/)?([A-Za-z0-9_-]+)\.md(#[^\s)]*)?/g,
@@ -126,11 +115,7 @@ ${check.answer}
 
 </details>`;
 
-  const marker = key.startsWith('cli/')
-    ? /^## ✅/m
-    : key.startsWith('copilot-app/')
-      ? /^## Resources/m
-      : null;
+  const marker = key.startsWith('copilot-app/') ? /^## Resources/m : null;
 
   if (!marker) {
     const dividerIndex = markdown.lastIndexOf('\n---\n');
@@ -171,10 +156,6 @@ const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
   let markdown = readFileSync(sourceFile, 'utf8')
     .replace(/^\uFEFF/, '')
     .replace(/\r\n/g, '\n');
-  if (options.removeTrack) {
-    markdown = stripTrack(markdown, options.removeTrack);
-  }
-
   const isIndex = basename(destinationFile) === 'index.md';
   markdown = normalizeLinks(markdown, isIndex);
 
@@ -230,6 +211,39 @@ const importMarkdownDirectory = (sourceDirectory, destinationDirectory, options 
 };
 
 importMarkdownDirectory(
+  join(sources.vscode, 'workshop'),
+  join(contentRoot, 'vscode'),
+  {
+    indexFile: '00-overview.md',
+    exclude: ['GUIDE.md'],
+    replacements: [
+      [/\[← README\]\(\.\.\/README\.md\)\n?/, ''],
+      [/\]\(\.\.\/00-overview\/\)/g, '](../)'],
+      [
+        /### Step 1: Create Your Repository \(Required\)[\s\S]*?(?=### Step 4: Review Trust and Approvals)/,
+        `### Step 1: Clone the workshop repository
+
+The workshop repository already contains the Bingo Mixer app, custom agents, skills, hooks, instructions, and complete lab guide. Clone it directly, then open it in VS Code:
+
+\`\`\`bash
+git clone https://github.com/copilot-dev-days/agent-lab-typescript.git
+cd agent-lab-typescript
+code .
+\`\`\`
+
+Install the recommended extensions when VS Code prompts you, or run **Extensions: Show Recommended Extensions**.
+
+> If you want to push your changes or publish the app with GitHub Pages, fork the repository first and clone your fork instead.
+
+`
+      ],
+      [/### Step 4: Review Trust and Approvals/, '### Step 2: Review Trust and Approvals'],
+      [/### Step 5: Run the Setup Skill/, '### Step 3: Run the Setup Skill']
+    ]
+  }
+);
+
+importMarkdownDirectory(
   join(sources['copilot-app'], 'docs', 'app'),
   join(contentRoot, 'copilot-app'),
   {
@@ -248,64 +262,6 @@ for (const name of readdirSync(appImagesSource)) {
     cpSync(join(appImagesSource, name), join(appImagesDestination, name));
   }
 }
-
-importMarkdownDirectory(
-  join(sources.cli, 'workshop'),
-  join(contentRoot, 'cli'),
-  {
-    indexFile: '00-overview.md',
-    removeTrack: 'vscode',
-    replacements: [
-      [/### Step 1: Create Your Repository/, '### Step 1: Clone the CLI starter'],
-      [
-        /> \*\*Duration:\*\*.*$/m,
-        '> **Duration:** 60–90 minutes for the facilitated core; advanced deep dives are available if time permits.'
-      ],
-      [
-        /The workshop supports \*\*two tracks\*\*: a VS Code experience and a GitHub Copilot CLI experience\./,
-        'This NDC Oslo edition focuses on the GitHub Copilot CLI experience.'
-      ],
-      [
-        /## 🎯 Choose Your Track[\s\S]*?---/,
-        '## Workshop path\n\nFollow the CLI instructions throughout this edition. Parts 1–5 form the facilitated core; Parts 6–8 are advanced deep dives, and Part 9 is optional.\n\n---'
-      ],
-      [
-        /> 💡 \*\*Tip:\*\* Use the DevContainer for a pre-configured environment if you want a fast start in VS Code\./,
-        '> **Tip:** The starter repository includes a Dev Container if you prefer a pre-configured terminal environment.'
-      ],
-      [
-        /1\. Open \[github\.com\/copilot-dev-days\/mona-mayhem\][\s\S]*?3\. Name it `my-mona-mayhem` and set visibility to \*\*Public\*\* \(if you created from template\)/,
-        `Clone the dedicated Mona Mayhem starter, then open it in your editor:
-
-\`\`\`bash
-git clone https://github.com/jamesmontemagno/workshop-mona-mayhem.git
-cd workshop-mona-mayhem
-code .
-\`\`\`
-
-Keep all CLI lab work in this repository. Fork the starter first only when you want to push changes or use repository-backed GitHub features.`
-      ],
-      [
-        /1\. Clone your repo locally and open a terminal in the project root\./,
-        '1. In the terminal at `workshop-mona-mayhem`, install dependencies and start the app:'
-      ],
-      [/2\. Install dependencies and start the app:\n/, ''],
-      [
-        /3\. Open a \*\*second terminal\*\* in the same repo and start Copilot CLI:/,
-        '2. Open a **second terminal** in the same folder and start Copilot CLI:'
-      ],
-      [/4\. In the interactive session, enter:/, '3. In the interactive session, enter:'],
-      [
-        /5\. Follow the device flow prompts, then confirm that you trust the repository when the CLI asks for approval\./,
-        '4. Follow the device flow prompts, then confirm that you trust the repository when the CLI asks for approval.'
-      ],
-      [
-        /Create your repo, prepare your environment, and give Copilot the right context/,
-        'Clone the dedicated starter, prepare your environment, and give Copilot the right context'
-      ]
-    ]
-  }
-);
 
 if (temporaryRoot) {
   rmSync(temporaryRoot, { recursive: true, force: true });

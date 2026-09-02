@@ -12,22 +12,23 @@ Developers attending NDC Oslo 2026 with Kayla Cinnamon and James Montemagno. The
 
 ## Product Purpose
 
-Provide one trusted path through two GitHub Copilot experiences, ordered as Copilot App and Copilot CLI. Success means attendees can prepare once, start the correct project, complete each lesson in sequence, and resume without searching across separate repositories.
+Provide one trusted path through two GitHub Copilot experiences, ordered as VS Code and Copilot App. Success means attendees can prepare once, start the correct project, complete each lesson in sequence, and resume without searching across separate repositories.
 
 ## Positioning
 
-The site joins a repository-backed Copilot App development loop with a Copilot CLI build path while keeping each track's setup model explicit: Tailspin Toys is an external template and Mona Mayhem is a separate starter repository.
+The site joins a VS Code agent lab with a repository-backed Copilot App development loop while keeping each track's setup model explicit: attendees clone the complete `agent-lab-typescript` repository for VS Code and create Tailspin Toys from an external template for the Copilot App.
 
 ## Operating Context
 
-Attendees use GitHub, Git, Node.js, a modern browser, the GitHub Copilot app, GitHub Copilot CLI, and Visual Studio Code. The published site runs on GitHub Pages at `/ndc-oslo-copilot-workshop/`.
+Attendees use GitHub, Git, Node.js, a modern browser, Visual Studio Code, and the GitHub Copilot app. The published site runs on GitHub Pages at `/ndc-oslo-copilot-workshop/`.
 
 ## Capabilities and Constraints
 
-- Retain only the Copilot App and Copilot CLI tracks, in that order.
+- Retain only the VS Code and Copilot App tracks, in that order.
 - Preserve substantive upstream lesson content and provenance.
 - Keep runnable workshop projects out of this website repository.
-- Direct learners to the Tailspin Toys template and dedicated Mona Mayhem starter repositories.
+- Direct learners to the complete VS Code lab repository and the Tailspin Toys template.
+- Import pinned upstream lesson Markdown at run and build time instead of committing generated pages.
 - Store progress and theme preferences locally in the browser.
 - Support dynamic GitHub Pages owner and repository paths.
 
@@ -45,7 +46,7 @@ Use the name NDC Oslo 2026 and the official public event facts: 14-18 September 
 ## Product Principles
 
 1. Make the two-track progression unmistakable on every surface.
-2. Start with Copilot App and make resume behavior predictable.
+2. Start with VS Code and make resume behavior predictable.
 3. Make each track's external project setup unmistakable.
 4. Preserve educational source truth while removing unrelated curriculum completely.
 5. Optimize for legibility, keyboard access, and confidence in a conference room.

@@ -14,15 +14,13 @@ description: "Official event links, source workshops, and imported-content prove
 
 ## Source workshops
 
+- [VS Code GitHub Copilot Agent Lab](https://github.com/copilot-dev-days/agent-lab-typescript)
 - [Copilot Workshops · Copilot App track](https://github.com/github-samples/copilot-workshops)
 - [Tailspin Toys starter](https://github.com/github-samples/tailspin-toys)
-- [Mona Mayhem · Copilot CLI lesson source](https://github.com/cinnamon-msft/kayla-chaos)
-- [Mona Mayhem workshop starter](https://github.com/jamesmontemagno/workshop-mona-mayhem)
 
-Imported lesson content is pinned to the exact upstream commits listed in `workshops.sources.json`. Runnable projects remain in their dedicated repositories. See `THIRD_PARTY_NOTICES.md` for license and provenance details.
+Lesson content is read from the exact upstream commits pinned in `workshops.sources.json` whenever the site runs or builds. Generated pages are not committed to this repository, and runnable projects remain in their dedicated repositories. See `THIRD_PARTY_NOTICES.md` for license and provenance details.
 
 ## Product documentation
 
 - [GitHub Copilot documentation](https://docs.github.com/copilot)
-- [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli)
 - [Visual Studio Code](https://code.visualstudio.com/)

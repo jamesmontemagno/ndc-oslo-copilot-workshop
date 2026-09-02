@@ -29,14 +29,14 @@ Both are freely distributable npm packages with SIL Open Font License.
 
 ### Two-track structure
 
-1. **Copilot App** — the primary/first track, initial CTA destination
-2. **Copilot CLI** — the second track
+1. **VS Code** — the primary/first track, initial CTA destination
+2. **Copilot App** — the second track
 
-The landing page is a persuasive/read hybrid with a full-viewport hero, a signal board showing two route stops (App and CLI), route-line SVG notation, and geometric block lab cards below. The Starlight doc shell provides calm, legible lesson pages.
+The landing page is a persuasive/read hybrid with a full-viewport hero, a signal board showing two route stops (VS Code and App), route-line SVG notation, and geometric block lab cards below. The Starlight doc shell provides calm, legible lesson pages.
 
 ### Signal board
 
-The hero's signal board uses a grid background, terminal fragment, and two surface cards (App and CLI) connected by a route-line SVG — conveying a wayfinding metaphor rather than generic cards.
+The hero's signal board uses a grid background, a VS Code Copilot Chat fragment, and two surface cards (VS Code and App) connected by a route-line SVG — conveying a wayfinding metaphor rather than generic cards.
 
 ## Accessibility
 
