@@ -4,7 +4,7 @@
       "key": "vscode",
       "name": "VS Code GitHub Copilot Agent Lab",
       "repository": "https://github.com/copilot-dev-days/agent-lab-typescript.git",
-      "commit": "59fef1e0ee65501cb59b2eb65288efa3b298f389",
+      "commit": "7bfc0928a8a8ac8190e0bd91d7169ba6942dc0ea",
       "cacheDirectory": "agent-lab-typescript",
       "license": "MIT"
     },
