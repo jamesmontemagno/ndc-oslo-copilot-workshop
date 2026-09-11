@@ -178,6 +178,13 @@
   color: var(--workshop-success);
 }
 
+.workshop-confetti {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  pointer-events: none;
+}
+
 @media (max-width: 35rem) {
   .lesson-progress {
     align-items: stretch;
