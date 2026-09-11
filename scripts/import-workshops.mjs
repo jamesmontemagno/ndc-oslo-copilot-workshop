@@ -254,27 +254,7 @@ importMarkdownDirectory(
     exclude: ['GUIDE.md'],
     replacements: [
       [/\[← README\]\(\.\.\/README\.md\)\n?/, ''],
-      [/\]\(\.\.\/00-overview\/\)/g, '](../)'],
-      [
-        /### Step 1: Create Your Repository \(Required\)[\s\S]*?(?=### Step 4: Review Trust and Approvals)/,
-        `### Step 1: Clone the workshop repository
-
-The workshop repository already contains the Bingo Mixer app, custom agents, skills, hooks, instructions, and complete lab guide. Clone it directly, then open it in VS Code:
-
-\`\`\`bash
-git clone https://github.com/copilot-dev-days/agent-lab-typescript.git
-cd agent-lab-typescript
-code .
-\`\`\`
-
-Install the recommended extensions when VS Code prompts you, or run **Extensions: Show Recommended Extensions**.
-
-> If you want to push your changes or publish the app with GitHub Pages, fork the repository first and clone your fork instead.
-
-`
-      ],
-      [/### Step 4: Review Trust and Approvals/, '### Step 2: Review Trust and Approvals'],
-      [/### Step 5: Run the Setup Skill/, '### Step 3: Run the Setup Skill']
+      [/\]\(\.\.\/00-overview\/\)/g, '](../)']
     ]
   }
 );
