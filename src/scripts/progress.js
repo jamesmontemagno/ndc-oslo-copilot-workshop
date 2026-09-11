@@ -2,6 +2,7 @@
   const storageKey = 'ndc-oslo-workshop-progress-v1';
   const taskStorageKey = 'ndc-oslo-workshop-task-progress-v1';
   const base = document.querySelector('meta[name="workshop-base"]')?.content || '/';
+  const celebrationLessons = new Set(['vscode/05-complete', 'copilot-app/9-review']);
   const labs = {
     vscode: ['01-setup', '02-design', '03-quiz-master', '04-multi-agent', '05-complete'],
     'copilot-app': [
@@ -34,6 +35,84 @@
     ? location.pathname.slice(base.length)
     : location.pathname.replace(/^\/+/, '');
   const match = normalizedPath.match(/^labs\/([^/]+)\/([^/]+)\/?$/);
+
+  const celebrate = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) return;
+
+    canvas.className = 'workshop-confetti';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.append(canvas);
+
+    const colors = ['#58a6ff', '#f778ba', '#ffd33d', '#56d364', '#bc8cff', '#ff7b72'];
+    const particles = Array.from({ length: 240 }, (_, index) => ({
+      x: index % 2 ? -20 : window.innerWidth + 20,
+      y: window.innerHeight * (0.2 + Math.random() * 0.45),
+      width: 6 + Math.random() * 8,
+      height: 4 + Math.random() * 5,
+      velocityX: (index % 2 ? 1 : -1) * (5 + Math.random() * 10),
+      velocityY: -8 - Math.random() * 12,
+      gravity: 0.28 + Math.random() * 0.15,
+      rotation: Math.random() * Math.PI,
+      rotationSpeed: (Math.random() - 0.5) * 0.35,
+      color: colors[index % colors.length]
+    }));
+    let frame;
+    let startedAt;
+
+    const resize = () => {
+      const scale = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * scale;
+      canvas.height = window.innerHeight * scale;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      context.setTransform(scale, 0, 0, scale, 0, 0);
+    };
+
+    const draw = (timestamp) => {
+      startedAt ??= timestamp;
+      context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      particles.forEach((particle) => {
+        particle.x += particle.velocityX;
+        particle.y += particle.velocityY;
+        particle.velocityY += particle.gravity;
+        particle.velocityX *= 0.992;
+        particle.rotation += particle.rotationSpeed;
+
+        context.save();
+        context.translate(particle.x, particle.y);
+        context.rotate(particle.rotation);
+        context.fillStyle = particle.color;
+        context.fillRect(
+          -particle.width / 2,
+          -particle.height / 2,
+          particle.width,
+          particle.height
+        );
+        context.restore();
+      });
+
+      if (timestamp - startedAt < 5000) {
+        frame = requestAnimationFrame(draw);
+      } else {
+        cleanup();
+      }
+    };
+
+    const cleanup = () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('resize', resize);
+      canvas.remove();
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+    frame = requestAnimationFrame(draw);
+  };
 
   const getLessonId = (href) => {
     const path = new URL(href, location.href).pathname;
@@ -219,11 +298,16 @@
         saveState(storageKey, state);
         render();
         updateSidebar();
+        if (state[id] && celebrationLessons.has(id)) celebrate();
       });
 
       render();
       wrapper.append(status, button);
       container.append(wrapper);
+    }
+
+    if (celebrationLessons.has(id)) {
+      window.setTimeout(celebrate, 250);
     }
   }
 
