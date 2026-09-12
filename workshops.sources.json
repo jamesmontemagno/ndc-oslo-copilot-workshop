@@ -4,7 +4,7 @@
       "key": "vscode",
       "name": "VS Code GitHub Copilot Agent Lab",
       "repository": "https://github.com/copilot-dev-days/agent-lab-typescript.git",
-      "commit": "7bfc0928a8a8ac8190e0bd91d7169ba6942dc0ea",
+      "commit": "00a4dbd1d6c603bff2d645d3019f56e4620c2d03",
       "cacheDirectory": "agent-lab-typescript",
       "license": "MIT"
     },
@@ -12,7 +12,7 @@
       "key": "copilot-app",
       "name": "Copilot Workshops",
       "repository": "https://github.com/github-samples/copilot-workshops.git",
-      "commit": "1d1a341ac911478700afc667b12d9874f84ae33b",
+      "commit": "7ddcf241c1cd10b8e90c0df96f6bef81e710392a",
       "cacheDirectory": "copilot-workshops",
       "license": "MIT"
     }
