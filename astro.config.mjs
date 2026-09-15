@@ -43,18 +43,7 @@ export default defineConfig({
         { label: 'Workshop home', link: '/' },
         { label: 'Prepare', link: '/prepare/' },
         {
-          label: '1 · VS Code',
-          items: [
-            { label: 'Lab overview', link: '/labs/vscode/' },
-            { label: 'Setup & context engineering', link: '/labs/vscode/01-setup/' },
-            { label: 'Design-first frontend', link: '/labs/vscode/02-design/' },
-            { label: 'Custom Quiz Master', link: '/labs/vscode/03-quiz-master/' },
-            { label: 'Multi-agent development', link: '/labs/vscode/04-multi-agent/' },
-            { label: 'Completion & next steps', link: '/labs/vscode/05-complete/' }
-          ]
-        },
-        {
-          label: '2 · Copilot App',
+          label: '1 · Copilot App',
           items: [
             { label: 'Lab overview', link: '/labs/copilot-app/' },
             { label: 'Prerequisites', link: '/labs/copilot-app/0-prerequisites/' },
@@ -67,6 +56,17 @@ export default defineConfig({
             { label: 'Agent Merge', link: '/labs/copilot-app/7-agent-merge/' },
             { label: 'Canvases', link: '/labs/copilot-app/8-canvases/' },
             { label: 'Review', link: '/labs/copilot-app/9-review/' }
+          ]
+        },
+        {
+          label: '2 · VS Code',
+          items: [
+            { label: 'Lab overview', link: '/labs/vscode/' },
+            { label: 'Setup & context engineering', link: '/labs/vscode/01-setup/' },
+            { label: 'Design-first frontend', link: '/labs/vscode/02-design/' },
+            { label: 'Custom Quiz Master', link: '/labs/vscode/03-quiz-master/' },
+            { label: 'Multi-agent development', link: '/labs/vscode/04-multi-agent/' },
+            { label: 'Completion & next steps', link: '/labs/vscode/05-complete/' }
           ]
         },
         { label: 'Resources & attribution', link: '/resources/' }

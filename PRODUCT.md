@@ -12,7 +12,7 @@ Developers attending NDC Oslo 2026 with Kayla Cinnamon and James Montemagno. The
 
 ## Product Purpose
 
-Provide one trusted path through two GitHub Copilot experiences, ordered as VS Code and Copilot App. Success means attendees can prepare once, start the correct project, complete each lesson in sequence, and resume without searching across separate repositories.
+Provide one trusted path through two GitHub Copilot experiences, ordered as Copilot App and VS Code. Success means attendees can prepare once, start the correct project, complete each lesson in sequence, and resume without searching across separate repositories.
 
 ## Positioning
 
@@ -24,7 +24,7 @@ Attendees use GitHub, Git, Node.js, a modern browser, Visual Studio Code, and th
 
 ## Capabilities and Constraints
 
-- Retain only the VS Code and Copilot App tracks, in that order.
+- Retain only the Copilot App and VS Code tracks, in that order.
 - Preserve substantive upstream lesson content and provenance.
 - Keep runnable workshop projects out of this website repository.
 - Direct learners to the complete VS Code lab repository and the Tailspin Toys template.
@@ -46,7 +46,7 @@ Use the name NDC Oslo 2026 and the official public event facts: 14-18 September 
 ## Product Principles
 
 1. Make the two-track progression unmistakable on every surface.
-2. Start with VS Code and make resume behavior predictable.
+2. Start with the Copilot App and make resume behavior predictable.
 3. Make each track's external project setup unmistakable.
 4. Preserve educational source truth while removing unrelated curriculum completely.
 5. Optimize for legibility, keyboard access, and confidence in a conference room.

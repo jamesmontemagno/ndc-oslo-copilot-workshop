@@ -90,6 +90,11 @@
   box-shadow: 0 16px 50px oklch(0 0 0 / 0.16);
 }
 
+.sl-markdown-content pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .workshop-tabs {
   margin-block: 1.5rem;
 }

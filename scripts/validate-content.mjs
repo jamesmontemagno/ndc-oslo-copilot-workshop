@@ -62,8 +62,8 @@ if (existsSync(join(root, 'labs'))) {
 
 const sourceManifest = JSON.parse(readFileSync(join(root, 'workshops.sources.json'), 'utf8'));
 const sourceKeys = sourceManifest.sources.map((source) => source.key);
-if (sourceKeys.join(',') !== 'vscode,copilot-app') {
-  errors.push('Workshop sources must contain only VS Code and Copilot App, in that order.');
+if (sourceKeys.join(',') !== 'copilot-app,vscode') {
+  errors.push('Workshop sources must contain only Copilot App and VS Code, in that order.');
 }
 
 const favicon = readFileSync(join(root, 'public', 'favicon.svg'), 'utf8');
