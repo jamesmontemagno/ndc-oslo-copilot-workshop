@@ -25,8 +25,12 @@ Complete this checklist before the workshop. Both labs work on Windows, macOS, o
 
 ## Sign in before arriving
 
-1. Open VS Code, launch Copilot Chat, and confirm you are signed in to GitHub.
-2. Launch the GitHub Copilot app and confirm it opens to your signed-in workspace.
+1. Launch the GitHub Copilot app and confirm it opens to your signed-in workspace.
+2. Open VS Code, launch Copilot Chat, and confirm you are signed in to GitHub.
+
+## Prepare for the Copilot App lab
+
+You do not need to clone a project for this track. The guided tour creates a standalone `space-quiz` folder, and the following lesson guides you through creating Tailspin Toys from its GitHub template.
 
 ## Clone the VS Code lab
 
@@ -40,10 +44,6 @@ code .
 
 Install the recommended extensions when prompted. If you want to push your workshop changes, fork the repository first and clone your fork instead.
 
-## Prepare for the Copilot App lab
-
-You do not need to clone a project for this track. The guided tour creates a standalone `space-quiz` folder, and the following lesson guides you through creating Tailspin Toys from its GitHub template.
-
 If your organization manages Copilot access, confirm that VS Code agent features and the GitHub Copilot app are enabled before the workshop. Contact your administrator or a facilitator if either sign-in is unavailable.
 
 ## Quick preflight
@@ -51,10 +51,10 @@ If your organization manages Copilot access, confirm that VS Code agent features
 Before arriving, confirm:
 
 1. `git`, `node`, and `code` return versions without errors.
-2. The `agent-lab-typescript` repository opens in VS Code.
-3. Copilot Chat opens with the **Local** session target.
-4. The GitHub Copilot app launches and shows you as signed in.
+2. The GitHub Copilot app launches and shows you as signed in.
+3. The `agent-lab-typescript` repository opens in VS Code.
+4. Copilot Chat opens with the **Local** session target.
 5. You can create repositories and pull requests in your GitHub account.
 6. Edge or Chrome opens normally.
 
-When everything is ready, [begin with the VS Code lab](/labs/vscode/).
+When everything is ready, [begin with the Copilot App lab](/labs/copilot-app/).

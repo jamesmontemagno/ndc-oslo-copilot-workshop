@@ -4,7 +4,6 @@
   const base = document.querySelector('meta[name="workshop-base"]')?.content || '/';
   const celebrationLessons = new Set(['vscode/05-complete', 'copilot-app/9-review']);
   const labs = {
-    vscode: ['01-setup', '02-design', '03-quiz-master', '04-multi-agent', '05-complete'],
     'copilot-app': [
       '0-prerequisites',
       '1-install-copilot-app',
@@ -16,7 +15,8 @@
       '7-agent-merge',
       '8-canvases',
       '9-review'
-    ]
+    ],
+    vscode: ['01-setup', '02-design', '03-quiz-master', '04-multi-agent', '05-complete']
   };
 
   const parseState = (key) => {
@@ -149,7 +149,7 @@
   const updateLanding = () => {
     let completed = 0;
     let total = 0;
-    let resumeHref = `${base}labs/vscode/01-setup/`;
+    let resumeHref = `${base}labs/copilot-app/0-prerequisites/`;
     let foundResume = false;
 
     Object.entries(labs).forEach(([lab, steps]) => {

@@ -4,24 +4,24 @@ import LandingLayout from '../layouts/LandingLayout.astro';
 const base = import.meta.env.BASE_URL;
 const labs = [
   {
-    key: 'vscode',
-    number: '01',
-    title: 'VS Code',
-    duration: '90 min',
-    platform: 'Windows · macOS · Linux',
-    description: 'Shape, test, and extend Bingo Mixer with local agents, skills, hooks, and browser tools.',
-    outcome: 'Build an AI-first workflow inside VS Code.',
-    href: `${base}labs/vscode/`
-  },
-  {
     key: 'copilot-app',
-    number: '02',
+    number: '01',
     title: 'Copilot App',
     duration: '90 min',
     platform: 'Windows · macOS · Linux',
     description: 'Move from issue to implementation, review, testing, and merge using the Copilot app.',
     outcome: 'Complete a full repo-backed development loop.',
     href: `${base}labs/copilot-app/`
+  },
+  {
+    key: 'vscode',
+    number: '02',
+    title: 'VS Code',
+    duration: '90 min',
+    platform: 'Windows · macOS · Linux',
+    description: 'Shape, test, and extend Bingo Mixer with local agents, skills, hooks, and browser tools.',
+    outcome: 'Build an AI-first workflow inside VS Code.',
+    href: `${base}labs/vscode/`
   }
 ];
 ---
@@ -34,7 +34,7 @@ const labs = [
   THESIS: A Nordic wayfinding system guides developers through two Copilot tracks.
   OWN-WORLD: Saturated cobalt fields, signal coral, icy typography, geometric route blocks.
   STORY: Conference arrival → choose your track → build with Copilot → ship.
-  FIRST VIEWPORT: Event identity, two-track signal board, VS Code-first CTA, preparation link.
+  FIRST VIEWPORT: Event identity, two-track signal board, Copilot App-first CTA, preparation link.
   FORM: Full-bleed cobalt hero, route-line SVG connecting two stops, crisp block cards below.
   -->
   <section class="hero">
@@ -46,13 +46,13 @@ const labs = [
       </p>
       <h1>Two tracks.<br /><strong>Build with Copilot.</strong></h1>
       <p class="hero-lede">
-        A hands-on workshop with Kayla Cinnamon and James Montemagno. Choose VS Code or the
-        Copilot App — or both.
+        A hands-on workshop with Kayla Cinnamon and James Montemagno. Start in the Copilot App,
+        then continue in VS Code.
       </p>
       <div class="hero-actions">
         <a class="primary-action" href={`${base}prepare/`}>Prepare your machine</a>
-        <a class="resume-action" href={`${base}labs/vscode/`} data-workshop-resume>
-          Start with VS Code <span aria-hidden="true">→</span>
+        <a class="resume-action" href={`${base}labs/copilot-app/`} data-workshop-resume>
+          Start with Copilot App <span aria-hidden="true">→</span>
         </a>
       </div>
       <p class="progress-summary" data-workshop-summary aria-live="polite">
@@ -60,21 +60,21 @@ const labs = [
       </p>
     </div>
 
-    <div class="signal-board" aria-label="VS Code and GitHub Copilot app workshop route">
+    <div class="signal-board" aria-label="Workshop route from GitHub Copilot App to VS Code">
       <div class="signal-top">
         <span>ROUTE_MAP</span>
         <span class="signal-live"><i></i> LIVE</span>
       </div>
       <div class="terminal-fragment">
-        <p><span class="prompt">VS Code</span> · Copilot Chat · Local</p>
+        <p><span class="prompt">Copilot App</span> · Autopilot · Cloud</p>
         <p class="dim">/setup</p>
         <p><span class="tool">●</span> Reading workspace customizations…</p>
       </div>
       <div class="surface-row">
-        <div><span>VS CODE</span><strong>Bingo Mixer</strong><i>agent</i></div>
         <div><span>APP</span><strong>Autopilot</strong><i>working</i></div>
+        <div><span>VS CODE</span><strong>Bingo Mixer</strong><i>agent</i></div>
       </div>
-      <svg class="signal-trace" viewBox="0 0 520 100" role="img" aria-label="Route connecting VS Code and Copilot App">
+      <svg class="signal-trace" viewBox="0 0 520 100" role="img" aria-label="Route from Copilot App to VS Code">
         <path d="M12 80 C130 80 130 24 260 24 S390 80 508 40" />
         <circle cx="12" cy="80" r="6" />
         <circle cx="260" cy="24" r="6" />

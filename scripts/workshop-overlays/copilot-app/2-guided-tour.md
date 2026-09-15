@@ -1,12 +1,12 @@
 ---
 title: "Lesson 2 - Guided tour of the Copilot app"
-description: "Build a small space quiz, polish it in the integrated browser, publish it to GitHub, and take an issue through a worktree, pull request, and Copilot review."
+description: "Build and publish a space quiz, take an issue through review, create a weekly automation, and explore a Canvas extension."
 authors:
   - geektrainer
-lastUpdated: 2026-08-06
+lastUpdated: 2026-09-15
 ---
 
-Before working in the Tailspin Toys project, you'll take a fast, end-to-end tour of the GitHub Copilot app. You'll create a standalone site in a new folder, watch it update in the integrated browser, publish it to GitHub, create a backlog, and carry one idea through a pull request and code review.
+Before working in the Tailspin Toys project, you'll take a fast, end-to-end tour of the GitHub Copilot app. You'll create a standalone site in a new folder, watch it update in the integrated browser, publish it to GitHub, create a backlog, carry one idea through a pull request and code review, create and run a weekly issue-review automation, and install a Canvas extension to start work by moving a card on the canvas.
 
 In this lesson, you will:
 
@@ -16,6 +16,8 @@ In this lesson, you will:
 - publish the project and create issues with the agent.
 - start an isolated session from an issue.
 - open a pull request, request a Copilot review, and resolve feedback.
+- create and run a weekly issue-review automation.
+- install a Canvas extension and start work by moving a card on the canvas.
 
 ## Start from the Home tab
 
@@ -76,7 +78,7 @@ Improve keyboard focus states and verify the quiz can be completed without a mou
 Now turn the local experiment into a GitHub project. Send this prompt:
 
 ```plaintext
-Initialize this folder as a Git repository, create an initial commit, and create a new public GitHub repository named space-quiz in my account. Push the current branch and set it as the default branch.
+Initialize this folder as a Git repository, create an initial commit, and create a new public GitHub repository named space-quiz in my account. Push the current branch and set it as the default branch. Refresh the project within this app so the GitHub project is linked.
 ```
 
 Review and approve any confirmation the agent requests before it creates the repository or pushes code. When it finishes, open the repository link and confirm `index.html` is on GitHub.
@@ -132,6 +134,43 @@ Return to the pull request in the Copilot app. For two actionable review comment
 
 If Copilot leaves fewer than two actionable comments, fix all of the actionable comments it provides rather than making unnecessary changes.
 
+## Create a weekly automation
+
+Create an automation that reviews recently created issues on a weekly schedule:
+
+1. Select the **Automations** tab.
+2. From **Templates**, choose the option to create a new weekly automation.
+3. Enter this prompt:
+
+   ```plaintext
+   Reviews the latest GitHub issues created and are open in the last week, and provide a summary table ranked by severity and priority
+   ```
+
+4. Set the session mode to **Autopilot**.
+5. Set the model to **Auto**.
+6. Select the new `space-quiz` project.
+7. Open the **Create** dropdown and choose **Create and run**.
+8. Confirm the automation starts and is saved to run weekly.
+
+## Explore a Canvas extension
+
+A canvas is a shared interactive work surface that opens alongside a session in the GitHub Copilot app. It can represent a Kanban board, plan, checklist, dashboard, document, or another purpose-built interface. Canvases are bidirectional: people and agents can read and update the same state, and a canvas can expose actions such as adding or moving cards.
+
+Canvas extensions package reusable surfaces that can be installed and opened in new sessions. Canvases help you inspect and steer work visually instead of relying only on chat prompts.
+
+1. Browse the [Canvas extensions gallery][canvas-gallery].
+2. Open the [Repository Issues Kanban extension][accessibility-kanban].
+3. Notice that it presents repository issues as a Kanban board for planning, tracking, and completing accessibility remediation work.
+4. Select **Install in GitHub Copilot app** and approve the installation.
+5. In the Copilot app, open **Customize**, select **Canvas**, and confirm **Repository Issues Kanban** is installed.
+6. Select **New session** for the canvas.
+7. Choose the `space-quiz` project if prompted.
+8. Confirm the new session opens with the canvas in the right-side panel.
+9. Explore the board and open a card to inspect its issue details and actions.
+10. Drag an issue card into the active-work column.
+11. Notice that this automatically creates a new agent session for the issue.
+12. Open the generated session from the sidebar and notice that the issue context is already available.
+
 ## Summary and next steps
 
 You've completed a full tour of the GitHub Copilot app:
@@ -141,6 +180,8 @@ You've completed a full tour of the GitHub Copilot app:
 - published a local folder as a GitHub repository.
 - created three issues and started an isolated worktree from one.
 - opened a pull request, requested a Copilot review, and resolved feedback with the agent.
+- created and ran a weekly issue-review automation.
+- installed a Canvas extension and used its Kanban board to create a session from an issue.
 
 Next, you'll create your Tailspin Toys repository and begin the main workshop scenario. Continue to [Lesson 3 - Running your first Tailspin agent session][next-lesson].
 
@@ -150,9 +191,14 @@ Next, you'll create your Tailspin Toys repository and begin the main workshop sc
 - [Working with agent sessions][agent-sessions]
 - [Managing issues and pull requests][managing-issues-prs]
 - [About Copilot code review][code-review]
+- [Working with Canvas extensions][canvas-docs]
+- [Canvas extensions gallery][canvas-gallery]
 
 [next-lesson]: ../3-add-star-rating/
 [getting-started]: https://docs.github.com/copilot/how-tos/github-copilot-app/getting-started
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
 [managing-issues-prs]: https://docs.github.com/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests
 [code-review]: https://docs.github.com/copilot/concepts/code-review/code-review
+[canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
+[canvas-gallery]: https://awesome-copilot.github.com/extensions/
+[accessibility-kanban]: https://awesome-copilot.github.com/extension/accessibility-kanban/
