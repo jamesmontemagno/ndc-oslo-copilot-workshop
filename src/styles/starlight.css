@@ -68,7 +68,10 @@
 
   html[data-left-sidebar-collapsed] {
     --sl-content-inline-start: 0rem;
-    --sl-content-width: 100%;
+  }
+
+  html[data-left-sidebar-collapsed] .sl-container {
+    max-width: 100%;
   }
 
   #starlight__sidebar {
@@ -102,8 +105,16 @@
     display: flex;
   }
 
-  html[data-right-sidebar-collapsed] {
-    --sl-content-width: 100%;
+  html[data-left-sidebar-collapsed]:not([data-right-sidebar-collapsed]) .right-sidebar-container {
+    width: var(--sl-sidebar-width);
+  }
+
+  html[data-left-sidebar-collapsed]:not([data-right-sidebar-collapsed]) .main-pane {
+    width: calc(100% - var(--sl-sidebar-width));
+  }
+
+  html[data-right-sidebar-collapsed] .sl-container {
+    max-width: 100%;
   }
 
   html[data-right-sidebar-collapsed] .right-sidebar-container {
