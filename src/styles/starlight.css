@@ -66,14 +66,15 @@
     display: flex;
   }
 
+  html[data-left-sidebar-collapsed] {
+    --sl-content-inline-start: 0rem;
+    --sl-content-width: 100%;
+  }
+
   #starlight__sidebar {
     transition:
       transform 180ms var(--workshop-ease),
       visibility 180ms var(--workshop-ease);
-  }
-
-  html[data-left-sidebar-collapsed] {
-    --sl-content-inline-start: 0rem;
   }
 
   html[data-left-sidebar-collapsed] #starlight__sidebar {
@@ -99,6 +100,10 @@
 @media (min-width: 72rem) {
   .sidebar-collapse-toggle--right {
     display: flex;
+  }
+
+  html[data-right-sidebar-collapsed] {
+    --sl-content-width: 100%;
   }
 
   html[data-right-sidebar-collapsed] .right-sidebar-container {
