@@ -3,14 +3,14 @@ title: "Lesson 2 - Guided tour of the Copilot app"
 description: "Build and publish a space quiz, take an issue through review, create a weekly automation, and explore a Canvas extension."
 authors:
   - geektrainer
-lastUpdated: 2026-09-15
+lastUpdated: 2026-09-16
 ---
 
 Before working in the Tailspin Toys project, you'll take a fast, end-to-end tour of the GitHub Copilot app. You'll create a standalone site in a new folder, watch it update in the integrated browser, publish it to GitHub, create a backlog, carry one idea through a pull request and code review, create and run a weekly issue-review automation, and install a Canvas extension to start work by moving a card on the canvas.
 
 In this lesson, you will:
 
-- create a local project from the **Home** tab.
+- create a local project from the **New** tab.
 - use the **Auto** model in **Interactive** mode.
 - build and polish a small site in the integrated browser.
 - publish the project and create issues with the agent.
@@ -19,11 +19,11 @@ In this lesson, you will:
 - create and run a weekly issue-review automation.
 - install a Canvas extension and start work by moving a card on the canvas.
 
-## Start from the Home tab
+## Start from the New tab
 
 1. Open the GitHub Copilot app.
 2. Confirm you are signed in to GitHub. If the app shows **Sign in to GitHub**, select it and complete the browser flow.
-3. Select **Home** in the sidebar.
+3. Select the **New** tab in the sidebar.
 4. In the project selector, choose **Local folder or repository**, then create or select an empty folder named `space-quiz`.
 5. Under the prompt box, set the session mode to **Interactive**. This turns off **Autopilot** so the agent pauses when it needs your input.
 6. In the model picker, select **GPT-5.3-Codex** if it is available. If it is not listed, select **Auto**.
@@ -43,6 +43,15 @@ Create a space exploration quiz with 10 questions, a progress bar, score counter
 Follow the agent's activity as it creates `index.html` and opens the result in the integrated browser. Play through a few questions and confirm that the progress bar, score, correct state, and incorrect shake all work.
 
 Because the project is a single HTML file with no dependencies, the browser can open it directly. You don't need to install packages or start a server.
+
+## Focus on the code
+
+Use the layout controls to make more room for the code:
+
+1. Collapse the left sidebar.
+2. Collapse the right-side browser panel.
+3. Review the generated `index.html` in the expanded code area.
+4. Restore both side areas before continuing.
 
 ## Pick an element and polish it
 
@@ -175,7 +184,7 @@ Canvas extensions package reusable surfaces that can be installed and opened in 
 
 You've completed a full tour of the GitHub Copilot app:
 
-- created a project from the Home tab with GPT-5.3-Codex or the Auto fallback in Interactive mode.
+- created a project from the New tab with GPT-5.3-Codex or the Auto fallback in Interactive mode.
 - built and polished a site while watching changes in the integrated browser.
 - published a local folder as a GitHub repository.
 - created three issues and started an isolated worktree from one.
