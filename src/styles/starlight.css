@@ -55,6 +55,11 @@
   transition: transform 180ms var(--workshop-ease);
 }
 
+html[data-left-sidebar-collapsed] .sl-container,
+html[data-right-sidebar-collapsed] .sl-container {
+  max-width: 100%;
+}
+
 .sidebar-collapse-toggle--left {
   inset-inline-start: var(--sl-sidebar-width);
   border-inline-start: 0;
@@ -68,10 +73,6 @@
 
   html[data-left-sidebar-collapsed] {
     --sl-content-inline-start: 0rem;
-  }
-
-  html[data-left-sidebar-collapsed] .sl-container {
-    max-width: 100%;
   }
 
   #starlight__sidebar {
@@ -105,16 +106,13 @@
     display: flex;
   }
 
+  /* Keep the visible table of contents beside the expanded main pane. */
   html[data-left-sidebar-collapsed]:not([data-right-sidebar-collapsed]) .right-sidebar-container {
     width: var(--sl-sidebar-width);
   }
 
   html[data-left-sidebar-collapsed]:not([data-right-sidebar-collapsed]) .main-pane {
     width: calc(100% - var(--sl-sidebar-width));
-  }
-
-  html[data-right-sidebar-collapsed] .sl-container {
-    max-width: 100%;
   }
 
   html[data-right-sidebar-collapsed] .right-sidebar-container {
