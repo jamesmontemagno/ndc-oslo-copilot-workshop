@@ -1,0 +1,85 @@
+---
+import DefaultHeader from '@astrojs/starlight/components/Header.astro';
+
+const { hasSidebar, toc } = Astro.locals.starlightRoute;
+---
+
+<DefaultHeader />
+
+{
+	hasSidebar && (
+		<button
+			class="sidebar-collapse-toggle sidebar-collapse-toggle--left"
+			type="button"
+			data-sidebar-toggle="left"
+			aria-controls="starlight__sidebar"
+			aria-expanded="true"
+			aria-label="Collapse navigation"
+			title="Collapse navigation"
+		>
+			<svg aria-hidden="true" viewBox="0 0 24 24">
+				<path d="m14.5 6-6 6 6 6" />
+			</svg>
+		</button>
+	)
+}
+
+{
+	toc && (
+		<button
+			class="sidebar-collapse-toggle sidebar-collapse-toggle--right"
+			type="button"
+			data-sidebar-toggle="right"
+			aria-expanded="true"
+			aria-label="Collapse table of contents"
+			title="Collapse table of contents"
+		>
+			<svg aria-hidden="true" viewBox="0 0 24 24">
+				<path d="m9.5 6 6 6-6 6" />
+			</svg>
+		</button>
+	)
+}
+
+<script>
+	const storageKey = 'workshop-collapsed-sidebars';
+	const root = document.documentElement;
+	const buttons = document.querySelectorAll<HTMLButtonElement>('[data-sidebar-toggle]');
+
+	let collapsed = new Set<string>();
+	try {
+		collapsed = new Set(JSON.parse(localStorage.getItem(storageKey) ?? '[]'));
+	} catch {
+		localStorage.removeItem(storageKey);
+	}
+
+	const updateSidebar = (side: string, isCollapsed: boolean) => {
+		const attribute = `data-${side}-sidebar-collapsed`;
+		root.toggleAttribute(attribute, isCollapsed);
+
+		const button = document.querySelector<HTMLButtonElement>(`[data-sidebar-toggle="${side}"]`);
+		if (!button) return;
+
+		const name = side === 'left' ? 'navigation' : 'table of contents';
+		const action = isCollapsed ? 'Expand' : 'Collapse';
+		button.setAttribute('aria-expanded', String(!isCollapsed));
+		button.setAttribute('aria-label', `${action} ${name}`);
+		button.title = `${action} ${name}`;
+	};
+
+	for (const button of buttons) {
+		const side = button.dataset.sidebarToggle;
+		if (!side) continue;
+
+		updateSidebar(side, collapsed.has(side));
+		button.addEventListener('click', () => {
+			if (collapsed.has(side)) {
+				collapsed.delete(side);
+			} else {
+				collapsed.add(side);
+			}
+			updateSidebar(side, collapsed.has(side));
+			localStorage.setItem(storageKey, JSON.stringify([...collapsed]));
+		});
+	}
+</script>

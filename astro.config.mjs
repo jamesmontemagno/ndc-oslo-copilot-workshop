@@ -37,6 +37,7 @@ export default defineConfig({
       },
       customCss: ['./src/styles/global.css', './src/styles/starlight.css'],
       components: {
+        Header: './src/components/Header.astro',
         Footer: './src/components/LessonFooter.astro'
       },
       sidebar: [

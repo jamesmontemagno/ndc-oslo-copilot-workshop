@@ -18,6 +18,107 @@
   letter-spacing: -0.025em;
 }
 
+.sidebar-collapse-toggle {
+  position: fixed;
+  z-index: calc(var(--sl-z-index-navbar) - 1);
+  top: calc(var(--sl-nav-height) + 1rem);
+  display: none;
+  width: 2rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--workshop-border);
+  background: var(--workshop-surface);
+  color: var(--workshop-ink);
+  cursor: pointer;
+  transition:
+    inset-inline 180ms var(--workshop-ease),
+    background-color 180ms var(--workshop-ease);
+}
+
+.sidebar-collapse-toggle:hover {
+  background: color-mix(in oklch, var(--workshop-primary) 24%, var(--workshop-surface));
+}
+
+.sidebar-collapse-toggle:focus-visible {
+  outline: 3px solid var(--workshop-focus);
+  outline-offset: 3px;
+}
+
+.sidebar-collapse-toggle svg {
+  width: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: transform 180ms var(--workshop-ease);
+}
+
+.sidebar-collapse-toggle--left {
+  inset-inline-start: var(--sl-sidebar-width);
+  border-inline-start: 0;
+  border-radius: 0 0.45rem 0.45rem 0;
+}
+
+@media (min-width: 50rem) {
+  .sidebar-collapse-toggle--left {
+    display: flex;
+  }
+
+  #starlight__sidebar {
+    transition:
+      transform 180ms var(--workshop-ease),
+      visibility 180ms var(--workshop-ease);
+  }
+
+  html[data-left-sidebar-collapsed] {
+    --sl-content-inline-start: 0rem;
+  }
+
+  html[data-left-sidebar-collapsed] #starlight__sidebar {
+    visibility: hidden;
+    transform: translateX(-100%);
+  }
+
+  html[data-left-sidebar-collapsed] .sidebar-collapse-toggle--left {
+    inset-inline-start: 0;
+  }
+
+  html[data-left-sidebar-collapsed] .sidebar-collapse-toggle--left svg {
+    transform: rotate(180deg);
+  }
+}
+
+.sidebar-collapse-toggle--right {
+  inset-inline-end: var(--sl-sidebar-width);
+  border-inline-end: 0;
+  border-radius: 0.45rem 0 0 0.45rem;
+}
+
+@media (min-width: 72rem) {
+  .sidebar-collapse-toggle--right {
+    display: flex;
+  }
+
+  html[data-right-sidebar-collapsed] .right-sidebar-container {
+    display: none;
+  }
+
+  html[data-right-sidebar-collapsed] .main-pane,
+  html[data-has-sidebar][data-has-toc][data-right-sidebar-collapsed] .main-pane {
+    width: 100%;
+  }
+
+  html[data-right-sidebar-collapsed] .sidebar-collapse-toggle--right {
+    inset-inline-end: 0;
+  }
+
+  html[data-right-sidebar-collapsed] .sidebar-collapse-toggle--right svg {
+    transform: rotate(180deg);
+  }
+}
+
 .sidebar-content a[aria-current='page'] {
   background: var(--workshop-primary);
   color: oklch(0.98 0.004 80);
