@@ -21,64 +21,76 @@
 .sidebar-collapse-toggle {
   position: fixed;
   z-index: calc(var(--sl-z-index-navbar) - 1);
-  top: calc(var(--sl-nav-height) + 1rem);
+  top: calc(var(--sl-nav-height) + 1.25rem);
   display: none;
-  width: 2rem;
-  height: 2.75rem;
+  width: 1.85rem;
+  height: 1.85rem;
   align-items: center;
   justify-content: center;
+  padding: 0;
   border: 1px solid var(--workshop-border);
+  border-radius: 999px;
   background: var(--workshop-surface);
-  color: var(--workshop-ink);
+  color: var(--workshop-muted);
+  box-shadow: 0 6px 18px oklch(0.05 0.02 255 / 0.28);
   cursor: pointer;
   transition:
-    inset-inline 180ms var(--workshop-ease),
-    background-color 180ms var(--workshop-ease);
+    inset-inline-start 220ms var(--workshop-ease),
+    inset-inline-end 220ms var(--workshop-ease),
+    background-color 160ms var(--workshop-ease),
+    border-color 160ms var(--workshop-ease),
+    color 160ms var(--workshop-ease);
 }
 
 .sidebar-collapse-toggle:hover {
-  background: color-mix(in oklch, var(--workshop-primary) 24%, var(--workshop-surface));
+  border-color: color-mix(in oklch, var(--workshop-primary) 65%, var(--workshop-border));
+  background: color-mix(in oklch, var(--workshop-primary) 18%, var(--workshop-surface));
+  color: var(--workshop-ink);
+}
+
+.sidebar-collapse-toggle:active {
+  background: color-mix(in oklch, var(--workshop-primary) 28%, var(--workshop-surface));
 }
 
 .sidebar-collapse-toggle:focus-visible {
   outline: 3px solid var(--workshop-focus);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 .sidebar-collapse-toggle svg {
-  width: 1.15rem;
+  width: 0.95rem;
+  height: 0.95rem;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 2;
-  transition: transform 180ms var(--workshop-ease);
+  stroke-width: 2.25;
+  transition: transform 220ms var(--workshop-ease);
 }
 
-html[data-left-sidebar-collapsed] .sl-container,
-html[data-right-sidebar-collapsed] .sl-container {
-  max-width: 100%;
+@media print {
+  .sidebar-collapse-toggle {
+    display: none !important;
+  }
 }
 
-.sidebar-collapse-toggle--left {
-  inset-inline-start: var(--sl-sidebar-width);
-  border-inline-start: 0;
-  border-radius: 0 0.45rem 0.45rem 0;
-}
-
+/* Left sidebar (navigation) */
 @media (min-width: 50rem) {
   .sidebar-collapse-toggle--left {
     display: flex;
-  }
-
-  html[data-left-sidebar-collapsed] {
-    --sl-content-inline-start: 0rem;
+    /* Straddle the border between the sidebar and the content. */
+    inset-inline-start: calc(var(--sl-sidebar-width) - 0.925rem);
   }
 
   #starlight__sidebar {
     transition:
-      transform 180ms var(--workshop-ease),
-      visibility 180ms var(--workshop-ease);
+      transform 220ms var(--workshop-ease),
+      visibility 220ms var(--workshop-ease);
+  }
+
+  html[data-has-sidebar][data-left-sidebar-collapsed] {
+    --sl-content-inline-start: 0rem;
+    --sl-content-width: 88ch;
   }
 
   html[data-left-sidebar-collapsed] #starlight__sidebar {
@@ -87,7 +99,7 @@ html[data-right-sidebar-collapsed] .sl-container {
   }
 
   html[data-left-sidebar-collapsed] .sidebar-collapse-toggle--left {
-    inset-inline-start: 0;
+    inset-inline-start: 0.75rem;
   }
 
   html[data-left-sidebar-collapsed] .sidebar-collapse-toggle--left svg {
@@ -95,37 +107,44 @@ html[data-right-sidebar-collapsed] .sl-container {
   }
 }
 
-.sidebar-collapse-toggle--right {
-  inset-inline-end: var(--sl-sidebar-width);
-  border-inline-end: 0;
-  border-radius: 0.45rem 0 0 0.45rem;
-}
-
+/* Right sidebar (table of contents) */
 @media (min-width: 72rem) {
   .sidebar-collapse-toggle--right {
     display: flex;
+    inset-inline-end: calc(var(--sl-sidebar-width) - 0.925rem);
   }
 
-  /* Keep the visible table of contents beside the expanded main pane. */
-  html[data-left-sidebar-collapsed]:not([data-right-sidebar-collapsed]) .right-sidebar-container {
+  /* Pin the table of contents to a fixed width so the main pane takes the rest. */
+  html[data-has-toc] .right-sidebar-container {
     width: var(--sl-sidebar-width);
   }
 
-  html[data-left-sidebar-collapsed]:not([data-right-sidebar-collapsed]) .main-pane {
+  html[data-has-toc] .main-pane,
+  html[data-has-sidebar][data-has-toc] .main-pane {
+    --sl-content-margin-inline: auto;
+
     width: calc(100% - var(--sl-sidebar-width));
   }
 
-  html[data-right-sidebar-collapsed] .right-sidebar-container {
+  html[data-has-toc][data-right-sidebar-collapsed] .right-sidebar-container {
     display: none;
   }
 
-  html[data-right-sidebar-collapsed] .main-pane,
+  html[data-has-toc][data-right-sidebar-collapsed] .main-pane,
   html[data-has-sidebar][data-has-toc][data-right-sidebar-collapsed] .main-pane {
     width: 100%;
   }
 
+  html[data-has-toc][data-right-sidebar-collapsed] {
+    --sl-content-width: 88ch;
+  }
+
+  html[data-has-sidebar][data-left-sidebar-collapsed][data-right-sidebar-collapsed] {
+    --sl-content-width: 108ch;
+  }
+
   html[data-right-sidebar-collapsed] .sidebar-collapse-toggle--right {
-    inset-inline-end: 0;
+    inset-inline-end: 0.75rem;
   }
 
   html[data-right-sidebar-collapsed] .sidebar-collapse-toggle--right svg {
