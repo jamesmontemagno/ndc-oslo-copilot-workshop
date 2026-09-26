@@ -4,7 +4,7 @@
       "key": "copilot-app",
       "name": "Copilot Workshops",
       "repository": "https://github.com/github-samples/copilot-workshops.git",
-      "commit": "646a63f99623ff91bd171dceff57558969647ab5",
+      "commit": "949044f0605f1b17322194baca52bd0586d931c5",
       "cacheDirectory": "copilot-workshops",
       "license": "MIT"
     },
